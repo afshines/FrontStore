@@ -1,143 +1,36 @@
+import FooterOfSite from "@/components/footerofsite";
+import Headerofwebsite from "@/components/header";
+import SearchBox from "@/components/searchbox";
 import Image from "next/image";
+import '@/app/globals.css'
+import { url } from '../data/config';
+import Head from 'next/head'
+import ShowArticle from "@/components/showarticle";
 
-export default function Home() {
+export default function Home({ data, headers }: any) {
   return (
 
     <div className="">
+           <Head>
+                <title>{headers.setting.title}</title>
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={headers.setting.title} />
+                <meta property="twitter:title" content={headers.setting.title} />
+                <meta property="og:title" content={headers.setting.title} />
+                <meta name="description" content={headers.setting.description} />
+                <meta property="twitter:description" content={headers.setting.description} />
+                <meta name="keywords" content={headers.setting.keywords} />
+                <meta name="description" content={headers.setting.description} />
+                <link rel="icon" href="/fav.png" />
+
+            </Head>
       <div className="">
 
         <div className="">
 
-          <div className="header-top  w-full h-12  colorSecondaryBackground">
-            <div className="menu-top flex justify-center items-center h-full  ">
+          <Headerofwebsite data={headers}></Headerofwebsite>
+          <SearchBox></SearchBox>
 
-              <a className="link-top-menu text-center text-white text-base font-black font-['Peyda'] hover:text-yellow-400  " href="#">روزهای شانس</a>
-              <div className="menu-divider  w-0.5 h-7 bg-white mr-2 ml-2">  </div>
-              <a className="link-top-menu text-center text-white text-base font-black font-['Peyda'] hover:text-yellow-400" href="#">روزهای شانس</a>
-              <div className="menu-divider w-0.5 h-7 bg-white mr-2 ml-2"> </div>
-              <a className="link-top-menu text-center text-white text-base font-black font-['Peyda'] hover:text-yellow-400" href="#">روزهای شانس</a>
-
-
-            </div>
-
-          </div>
-
-          <div className="middle-menu flex   justify-between w-full h-24   p-5  bg-white ">
-            <img className="logo w-[170px] h-[40px]" src="./images/logo.png" alt="logo" />
-
-
-            <div className="search">
-              <div className=" w-96 h-9 relative">
-                <div className=" w-96 h-9 bg-zinc-100 rounded-md" />
-
-                <img className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex" src="./images/search.svg" />
-
-                <div className=" w-28 h-6 right-[15px] top-[5px] absolute opacity-20 text-center text-neutral-400 text-base font-normal font-['Peyda']">جستجو</div>
-              </div>
-            </div>
-
-
-
-            <div className="flex justify-center items-center">
-
-
-              <div className="registerBtn relative w-32 h-10 colorSecondaryBackground rounded-xl border border-neutral-400">
-
-
-
-                <div className="Frame w-5 h-5 px-0.5 py-0.5 absolute right-[5px] top-[6px] -rotate-180 justify-center items-center inline-flex inline">
-                  <img className="  w-6 h-6 " src="./images/login.svg" />
-
-                </div>
-
-                <div className=" w-24 h-6 text-center absolute left-[0px] top-[5px] text-white text-base font-semibold font-['Peyda'] inline">ورود | ثبت نام</div>
-
-
-              </div>
-
-              <img className="cart  mr-2  w-6 h-6 px-px py-px justify-center items-center inline-flex" src="./images/cart.svg" />
-
-
-
-            </div>
-
-
-          </div>
-
-          <div className="bottom_menu w-full h-12 bg-white flex justify-between pl-5 pr-5">
-
-            <div className="menu-bottom-right flex justify-between">
-
-              ‍<div className="p-[10px]  ml-20">
-
-                <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">دسته بندی</span>
-
-                <img src="./images/category.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
-
-              </div>
-              ‍<div className="flex justify-between ">
-
-
-
-
-                <div className="flex w-25 justify-between p-[10px] colorPrimaryBackground rounded-tl rounded-tr">
-                  <span className="  w-14 h-3.5 text-right leading-relaxed  text-white text-base font-normal font-['Peyda']">تخفیفات</span>
-                  <span><img src="./images/discount.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px" /></span>
-                </div>
-                <div className="flex w-25 justify-between p-[10px]">
-                  <span className="  w-[100px] h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">پرفروش ترین ها</span>
-                  <span><img src="./images/top.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px " /> </span>
-                </div>
-                <div className="flex  w-25 justify-between p-[10px]">
-                  <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">سوالات</span>
-                  <span><img src="./images/question.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px  " /></span>
-                </div>
-
-              </div>
-
-            </div>
-
-            <div className="menu-bottom-left relative p-[10px]">
-
-              <span className=" ml-20 w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">درباره ما</span>
-
-              <img src="./images/about.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
-
-
-
-            </div>
-
-          </div>
-
-
-          <div className=" w-full h-[256px] bg-cover bg-center bg-no-repeat text-center relative" style={{ backgroundImage: "url('./images/slide1.jpg')", height: '256px' }}>
-
-            <div className=" mr-auto ml-auto  absolute   top-[120px] w-full flex justify-center  ">
-
-
-              <div className="Group56 w-36 h-12 relative mr-2">
-                <div className="Rectangle6 w-36 h-12 left-0 top-0 absolute colorSecondaryBackground rounded-md" />
-                <div className=" w-[108px] h-[34.29px] left-[18px] top-[13px] absolute text-center text-white text-base font-normal font-['Peyda']">جستجو</div>
-              </div>
-
-              <div className="Group62 w-[217px] h-[46px] relative mr-2" >
-                <div className="Rectangle61 w-[217px] h-[46px] left-0 top-0 absolute bg-white rounded-[3px] shadow-inner" />
-                <div className=" w-[191px] h-[15px] left-[3px] top-[15px] absolute text-right text-neutral-400 text-[13px] font-light font-['Peyda']">گروه</div>
-              </div>
-
-              <div className="Group61 w-[217px] h-[46px] relative mr-2">
-                <div className="Rectangle62 w-[217px] h-[46px] left-0 top-0 absolute bg-white rounded-[3px] shadow-inner" />
-                <div className=" w-[204px] h-[15px] left-0 top-[15px] absolute text-right text-neutral-400 text-[13px] font-light font-['Peyda']">برند</div>
-              </div>
-
-              <div className="Group60 w-[217px] h-[46px] relative">
-                <div className="Rectangle63 w-[217px] h-[46px] left-0 top-0 absolute bg-white rounded-[3px] shadow-inner" />
-                <div className=" w-[204px] h-[15px] left-[4px] top-[14px] absolute text-right text-neutral-400 text-[13px] font-light font-['Peyda']">نام</div>
-              </div>
-
-            </div>
-
-          </div>
 
           <div className="main-page colorWhiteBackground  w-full h-auto " >
 
@@ -581,145 +474,6 @@ export default function Home() {
             <div className="h-[100px]"></div>
 
 
-            <div className="footer w-full p-10 gradient-background footerBorder bg-left bg-no-repeat  footerBack ">
-
-              <div className=" flex justify-between  ">
-
-                <div >
-                  <div>
-                    <img className="logo w-[200px] h-[40px]" src="./images/logo.png" alt="logo" />
-                  </div>
-                  <div>
-                    <div className=" p-5 text-right text-blue-600 text-[15px] font-medium font-['Peyda']">تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱ .   |   ۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</div>
-
-                  </div>
-
-                  <div className="flex justify-start">
-                    <ul>
-
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">خدمات مشتریان</li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">پاسخ به پرسش‌های متداول </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">رویه‌های بازگرداندن کالا </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">شرایط استفاده </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">حریم خصوصی </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">گزارش باگ </li>
-
-                    </ul>
-
-                    <ul className="pr-11">
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">راهنمای خرید </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">نحوه ثبت سفارش </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">رویه ارسال سفارش </li>
-                      <li className="text-right text-slate-500  text-l font-medium font-['Peyda']">شیوه‌های پرداخت </li>
-
-                    </ul>
-                  </div>
-
-                </div>
-
-
-
-
-                <div >
-                  <div>
-                    <div className=" relative w-[185px] h-[41px] bg-white bg-opacity-0 rounded-[14px] border border-neutral-400" >
-
-                      <div className=" absolute top-2 right-2 w-[127px] h-6 text-right text-neutral-400 text-[15px] font-medium font-['Peyda']">بازگشت به بالا</div>
-                      <img className=" absolute top-3 left-3 w-[18px] h-[10px]  " src="./images/GoUp.png" />
-                    </div>
-
-                  </div>
-                  <div>
-                    <div className=" pt-7  pb-3 text-right text-slate-500 text-xs font-medium font-['Peyda'] leading-tight">همراه ما باشید!<br /></div>
-                  </div>
-                  <div className="flex justify-start">
-                    <img className=" p-1 w-8 h-8  " src="./images/linkedin.svg" />
-                    <img className=" p-1 w-8 h-8  " src="./images/aparat.svg" />
-                    <img className=" p-1 w-8 h-8  " src="./images/telegram.svg" />
-                    <img className=" p-1 w-8 h-8  " src="./images/instagram.svg" />
-                    <img className=" p-1 w-8 h-8  " src="./images/facebook.svg" />
-                  </div>
-                </div>
-              </div>
-
-
-
-
-              <div>
-
-
-                <div className="flex justify-between">
-                  <div className="mt-5 flex justify-between">
-                    <div className="pt-5 pl-5">
-                      <img className=" w-10 h-10  m-auto" src="./images/icons-zemanat.svg" />
-                      <div className=" w-[70px]  text-center text-slate-500 text-l font-thin font-['Peyda']">ضمانت اصل بودن کالا</div>
-
-                    </div>
-
-                    <div className="pt-5 pl-5">
-                      <img className=" w-10 h-10  m-auto" src="./images/icons-7roze.svg" />
-                      <div className=" w-[70px]  text-center text-slate-500 text-l font-thin font-['Peyda']">هفت روز ضمانت بازگشت کالا</div>
-
-                    </div>
-
-                    <div className="pt-5 pl-5">
-                      <img className=" w-10 h-10  m-auto" src="./images/icons-support.svg" />
-                      <div className=" w-[70px]  text-center text-slate-500 text-l font-thin font-['Peyda']">۷ روز ﻫﻔﺘﻪ،<br/> ۲۴ ﺳﺎﻋﺘﻪ</div>
-
-                    </div>
-
-                    <div className="pt-5 pl-5">
-                      <img className=" w-10 h-10  m-auto" src="./images/icons-express.svg" />
-                      <div className=" w-[70px]  text-center text-slate-500 text-l font-thin font-['Peyda']">تحویل اکسپرس</div>
-
-                    </div>
-                  </div>
-                  <div className="mt-5">
-                    <div className=" m-1 text-right text-black text-xs font-medium font-['Peyda']">با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید<br /></div>
-                    <div className="flex justify-start">
-                      <div className=" w-[238px] h-[37px] bg-zinc-100 rounded-[9px]" />
-
-                      <div className="Rectangle29 w-[69px] h-[37px] bg-slate-500 rounded-[9px] mr-2 flex justify-center items-center" >
-
-                        <div className=" w-[53px] h-3 text-center text-zinc-100 text-xs font-extrabold font-['Peyda']">ثبت</div>
-
-                      </div>
-
-                    </div>
-                  </div>
-                  <div className="flex justify-start items-center">
-
-                    <div className="w-[81px] h-[92px] bg-zinc-100 rounded-[7px] flex justify-center  p-5  m-2">
-                      <img className="  " src="./images/image 20.png" />
-                    </div>
-
-                    <div className="w-[81px] h-[92px] bg-zinc-100 rounded-[7px] flex justify-center  p-5  m-2">
-                      <img className="   " src="./images/image 21.png" />
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-
-              </div>
-
-
-
-
-            </div>
-
-
-
-
-
-
-
-            <div className="h-[50px] copyRightColorBg">
-
-            </div>
 
 
 
@@ -729,9 +483,23 @@ export default function Home() {
         </div>
 
       </div>
+      <FooterOfSite></FooterOfSite>
     </div>
 
 
 
   );
+}
+export const getServerSideProps = async (context: any) => {
+    const res = await fetch(`${url}/v1/firstpage`);
+    const res2 = await fetch(`${url}/v1/headerinfo`);
+    const headers = await res2.json();
+
+    const data = await res.json();
+    return {
+        props: {
+            data: data,
+            headers: headers
+        },
+    }
 }

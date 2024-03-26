@@ -1,107 +1,131 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~next-image-gallery/styles/css/image-gallery.css";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
 	direction: rtl;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(to bottom,
+			transparent,
+			rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }
 
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
+
 /* latin-ext */
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 100;
-	src: url('/fonts/woff2/PeydaWeb-Thin.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-Thin.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Thin.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-Thin.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 200;
-	src: url('/fonts/woff2/PeydaWeb-ExtraLight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-ExtraLight.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-ExtraLight.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-ExtraLight.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 300;
-	src: url('/fonts/woff2/PeydaWeb-Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-Light.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Light.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-Light.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 500;
-	src: url('/fonts/woff2/PeydaWeb-Medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-Medium.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Medium.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-Medium.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 600;
-	src: url('/fonts/woff2/PeydaWeb-Semibold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-Semibold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Semibold.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-Semibold.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
 
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 800;
-	src: url('/fonts/woff2/PeydaWeb-ExtraBold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-ExtraBold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-ExtraBold.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-ExtraBold.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: 900;
-	src: url('/fonts/woff2/PeydaWeb-Black.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-Black.woff') format('woff')  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Black.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-Black.woff') format('woff')
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: bold;
-	src: url('/fonts/woff2/PeydaWeb-Bold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/01-Standard/fonts/fonts/woff/PeydaWeb-Bold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Bold.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/01-Standard/fonts/fonts/woff/PeydaWeb-Bold.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
 @font-face {
 	font-family: PeydaWeb;
 	font-style: normal;
 	font-weight: normal;
-	src: url('/fonts/woff2/PeydaWeb-Regular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('/fonts/woff/PeydaWeb-Regular.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('/fonts/woff2/PeydaWeb-Regular.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('/fonts/woff/PeydaWeb-Regular.woff') format('woff');
+	/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
 
 
@@ -110,65 +134,67 @@ body {
 	margin: 0px !important;
 }
 
-html,body{
-    overflow-x: hidden;
-}
-html{
+html,
+body {
 	overflow-x: hidden;
-background-color: #f1f3f6;
 }
 
-html *{
-  font-family: 'PeydaWeb' !important; 
+html {
+	overflow-x: hidden;
+	background-color: #f1f3f6;
+}
+
+html * {
+	font-family: 'PeydaWeb' !important;
 }
 
 /* my colors */
 
-.colorPrimary{
-	color : #F58210;
+.colorPrimary {
+	color: #F58210;
 }
 
-.colorPrimaryBackground{
-	background-color : #F58210;
-}
-.colorSecondary{
-	color : #4C72A2;
+.colorPrimaryBackground {
+	background-color: #F58210;
 }
 
-.colorSecondaryBackground{
-	background-color : #4C72A2;
+.colorSecondary {
+	color: #4C72A2;
+}
+
+.colorSecondaryBackground {
+	background-color: #4C72A2;
 }
 
 
-.colorHighlight{
-	color : #38EF1E;
+.colorHighlight {
+	color: #38EF1E;
 }
 
-.colorWhite{
-	color : #F0F0F1;
+.colorWhite {
+	color: #F0F0F1;
 }
 
-.colorWhiteBackground{
-	background-color : #F0F0F1;
+.colorWhiteBackground {
+	background-color: #F0F0F1;
 }
 
 .gradient-background {
 	background-image: linear-gradient(to bottom, #d2d2d2, #f8f8f8);
-  }
+}
 
-  .copyRightColorBg{
-	background-color : #fbfbfb;
-  }
+.copyRightColorBg {
+	background-color: #fbfbfb;
+}
 
-  .footerBorder{
+.footerBorder {
 	border-bottom: 10px solid #55729e;
-  }
+}
 
-  .footerBack{
+.footerBack {
 	background-image: url('/images/footerBack.png');
 	background-position-x: -132px;
-  }
+}
 
 
 /* end my colors */
-
