@@ -1,8 +1,27 @@
 import ShowArticle from "./showarticle";
 import { url } from '../data/config';
 import { MegaMenu } from "./megamenu";
+import React, { useState, useEffect, useRef } from 'react';
+import CanvasMenu from "./canvas";
 
 export default function Headerofwebsite({ data }: any) {
+
+  const [showmega, setShow] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setShow(false);
+      }
+    };
+
+    window.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      window.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [ref]);
   return (
     <>
       <div className="header-top  w-full h-12  colorSecondaryBackground">
@@ -10,8 +29,41 @@ export default function Headerofwebsite({ data }: any) {
           <ShowArticle data={data.headerpages.tocomponent}></ShowArticle>
         </div>
       </div>
+      <div className="   lg:hidden xl:hidden  2xl:hidden colorSecondaryBackground ">
+        <div className="grid grid-cols-2 w-full p-1">
+          <div className="col-span-1 text-right pt-2 pr-3  pl-2">
+            <img src="/logo.png" width={'150px'} ></img>
+          </div>
+          <div className="col-span-1 text-left">
+            <div>
+              <CanvasMenu data={data}></CanvasMenu>
+            </div>
+          </div>
 
-      <div className="middle-menu flex   justify-between w-full h-24   p-5  bg-white ">
+        </div>
+        <div className="col-span-2 mr-4 ml-4 pb-3">
+          <div className="">
+            <div className=" w-[400] h-9 relative">
+              <div className="  h-9 bg-zinc-100 rounded-md" />
+              <img className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex" src="./images/search.svg" />
+              <div className="  w-full h-6 right-[60px] top-[5px] absolute opacity-20 text-center text-black text-base font-normal font-['Peyda']">
+                <input
+
+                  style={{
+                    width: ' 80%',
+                    marginLeft: '70px',
+                    color: 'black'
+                  }}
+
+                  className="w-100 " dir="rtl" placeholder="جستجو"  ></input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div 
+      // style={{ display:'inherit'}}
+      className="middle-menu flex onlysx    justify-between w-full h-24   p-5  bg-white ">
         {
           data.setting.masterimage != null && <img className="logo w-[170px] h-[40px]" src={url + data.setting.masterimage.url} alt={data.setting.title} />
         }
@@ -49,28 +101,61 @@ export default function Headerofwebsite({ data }: any) {
 
       </div>
 
-      <div className="bottom_menu w-full h-12 bg-white flex justify-between pl-5 pr-5">
-        <div className="menu-bottom-right flex justify-between">
-          ‍<div className="p-[10px]  ml-20">
+      <div className="bottom_menu  onlysx w-full h-12 bg-white flex justify-between pl-5 pr-5">
+        <div className="menu-bottom-right flex justify-between"
+
+        >
+
+          ‍<div
+            ref={ref}
+            onClick={(e) => {
+              setShow(showmega == true ? false : true)
+            }} onBlur={(e) => {
+              setShow(false);
+
+            }}
+
+            className="p-[10px]  ml-20">
             <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">دسته بندی</span>
             <img src="./images/category.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
+            {
+              showmega == true && <MegaMenu ref={ref} data={data.groups}></MegaMenu>
+
+            }
           </div>
+
           ‍<div className="flex justify-between ">
 
 
 
 
             <div className="flex w-25 justify-between p-[10px] colorPrimaryBackground rounded-tl rounded-tr">
-              <span className="  w-14 h-3.5 text-right leading-relaxed  text-white text-base font-normal font-['Peyda']">تخفیفات</span>
-              <span><img src="./images/discount.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px" /></span>
+              <a href="/precent">
+                <div className="flex">
+                  <span className="  w-14 h-3.5 text-right leading-relaxed  text-white text-base font-normal font-['Peyda']">تخفیفات</span>
+                  <span><img src="./images/discount.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px" /></span>
+
+                </div>
+              </a>
             </div>
             <div className="flex w-25 justify-between p-[10px]">
-              <span className="  w-[100px] h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">پرفروش ترین ها</span>
-              <span><img src="./images/top.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px " /> </span>
+              <a href="/sellerlist">
+                <div className="flex">
+                  <span className="  w-[100px] h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">پرفروش ترین ها</span>
+                  <span><img src="./images/top.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px " /> </span>
+
+                </div>
+              </a>
+
             </div>
             <div className="flex  w-25 justify-between p-[10px]">
-              <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">سوالات</span>
-              <span><img src="./images/question.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px  " /></span>
+              <a href="/qa">
+                <div className="flex">
+                  <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">سوالات</span>
+                  <span><img src="./images/question.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px  " /></span>
+
+                </div>
+              </a>
             </div>
 
           </div>
@@ -78,18 +163,21 @@ export default function Headerofwebsite({ data }: any) {
         </div>
 
         <div className="menu-bottom-left relative p-[10px]">
+          <a href="/aboutus">
+            <div className="flex">
+              <span className=" ml-20 w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']  font-extrabold">درباره ما</span>
 
-          <span className=" ml-20 w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">درباره ما</span>
+              <img src="./images/about.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
 
-          <img src="./images/about.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
 
+            </div>
+          </a>
 
 
         </div>
 
       </div>
 
-      <MegaMenu data={data.groups}></MegaMenu>
 
     </>
   )
