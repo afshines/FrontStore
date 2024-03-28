@@ -29,7 +29,7 @@ export function MegaMenu({ data }: any) {
 
 
                 </div>
-                <div className="w-[80%] p-8 border-rad  rounded-full rounded-[12px] bg-[#F0F0F1]">
+                <div className="w-[80%] p-8 border-rad   rounded-[12px] bg-[#F0F0F1]">
                     <div >
 
                         {data.map((item: any) => {
