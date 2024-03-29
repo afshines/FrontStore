@@ -7,22 +7,22 @@ export default function SearchBox() {
 
 
 
-          <div className="grid grid-cols-12 w-full gap-1 mt-[20px] sm:mt-[100px] mr-5 ml-5" >
+          <div className="grid grid-cols-12 w-full gap-1 mt-[20px] sm:mt-[100px] mr-10 ml-10" >
 
-            <div className=" xl:col-span-3  lg:col-span-3  col-span-12 items-center">
+            <div className=" xl:col-span-3  lg:col-span-3  col-span-12 items-center ">
               <div className=" w-full h-[46px] ">
-                <input className="w-full h-[46px] p-1 " placeholder="نام"></input>
+                <input className="w-full h-[46px] p-1 rounded opacity-8  " placeholder="نام"></input>
               </div>
             </div>
 
             <div className=" xl:col-span-3  lg:col-span-3  col-span-12 items-center">
               <div className=" w-full h-[46px] ">
-                <input className="w-full h-[46px] p-1 " placeholder="کروه"></input>
+                <input className="w-full h-[46px] rounded  p-1  opacity-8" placeholder="کروه"></input>
               </div>
             </div>
             <div className=" xl:col-span-3  lg:col-span-3  col-span-12 items-center">
               <div className=" w-full h-[46px] ">
-                <input className="w-full h-[46px] p-1 " placeholder="برند"></input>
+                <input className="w-full h-[46px] rounded  p-1 opacity-8 " placeholder="برند"></input>
               </div>
             </div>
          
@@ -30,9 +30,9 @@ export default function SearchBox() {
             
             <div className=" xl:col-span-3  lg:col-span-3  col-span-12 items-center">
 
-              <div className=" w-36 h-12 relative mr-2">
-                <div className="Rectangle6 w-36 h-12 left-0 top-0 absolute colorSecondaryBackground rounded-md" />
-                <div className=" w-[108px] h-[34.29px] left-[18px] top-[13px] absolute text-center text-white text-base font-normal font-['Peyda']">جستجو</div>
+              <div className=" w-full h-12 relative m-auto">
+                <div className="Rectangle6 w-full h-12 left-0 top-0 absolute colorSecondaryBackground rounded-md" />
+                <div className=" w-full h-[34.29px] left-[18px] top-[13px] absolute text-center text-white text-base font-normal font-['Peyda']">جستجو</div>
               </div>
             </div>
           </div>

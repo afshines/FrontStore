@@ -30,7 +30,7 @@ export default function Home({ data, headers }: any) {
 
       <div className="">
 
-        <div className="">
+        <div className="mt-24 sm:mt-0">
 
           <SearchBox></SearchBox>
 
@@ -45,9 +45,9 @@ export default function Home({ data, headers }: any) {
                     return (
                       <div className=" xl:col-span-1  lg:col-span-1  col-span-2  mr-3 items-center justify-center">
                         <a href={`/group/${item.url}`}>
-                          <div className="bg-white h-[100px] sm:h-40 pt-3 p-1  items-center justify-center ">
+                          <div className="bg-white sm:h-40 pt-3 p-1 h-[140px]  items-center justify-center ">
                             {
-                              item.masterimage != null && <img className=" w-[150px] h-[3]  rounded-[28px]" src={url + item.masterimage.url} />
+                              item.masterimage != null && <img className=" w-[150px] mt-3 h-[3]  rounded-[28px]" src={url + item.masterimage.url} />
                             }
                           </div>
 
@@ -85,8 +85,8 @@ export default function Home({ data, headers }: any) {
 
 
               <div className=" relative pr-1 pl-1  sm:col-span-5  col-span-9">
-                <img className=" absolute left-10 top-2  w-[62px] h-[62px] rounded-bl-lg rounded-br-lg" src="./images/renau.png" />
-                <img className=" w-[569px] h-[377px] border-t-4 border-orange-500" src="./images/car1.jpg" />
+                <img className=" absolute left-10 top-2  w-[62px]  rounded-bl-lg rounded-br-lg" src="./images/renau.png" />
+                <img className=" w-[569px] lg:h-[377px] xl:h-[377px] 2xl:h-[377px] sm:h-auto border-t-4 border-orange-500" src="./images/car1.jpg" />
               </div>
 
               <div className="sm:col-span-2 col-span-9 grid grid-cols-2">
@@ -159,9 +159,9 @@ export default function Home({ data, headers }: any) {
 
               <div className=" relative pr-1 pl-1 sm:col-span-4 col-span-2">
                 <img className=" absolute left-10 top-2  w-[62px] h-[62px] rounded-bl-lg rounded-br-lg" src="./images/renau.png" />
-                <img className=" w-full h-[420px] border-t-4 border-orange-500" src="./images/car1.jpg" />
+                <img className=" w-full sm:h-auto   lg:h-[420px] xl:h-[420px] 2xl:h-[420px]    border-t-4 border-orange-500" src="./images/car1.jpg" />
               </div>
-
+           
               <div className="sm:col-span-2 col-span-2 grid sm:grid-cols-1 grid-cols-2  ">
 
                 <div className=" relative pr-1 pl-1 pb-1 w-full mt-1">
@@ -191,10 +191,12 @@ export default function Home({ data, headers }: any) {
 
               <div className="h-[50px]"></div>
 
-              <div className=" w-[218px] h-[50px]  border border-black relative m-auto" >
-                <img className=" w-[19px] h-[19px] absolute top-[17px] left-[10px]    " src="./images/down-arrow.png"></img>
-                <div className=" w-[141px] h-[22px]  absolute top-[14px]  left-[17px]   m-auto text-right text-slate-800 text-xl font-normal font-['Peyda']">بیشتر بخوانید</div>
+              <a href="/aboutus">
+              <div className=" w-[200px] h-[40px]  border border-black relative m-auto" >
+                <img className=" w-[19px] h-[19px] absolute top-[7px] left-[10px]    " src="./images/down-arrow.png"></img>
+                <div className=" w-[141px] h-[22px]  absolute top-[4px]  left-[17px]   m-auto text-right text-slate-800 text-xl font-bold font-['Peyda']">بیشتر بخوانید</div>
               </div>
+              </a>
 
             </div>
 

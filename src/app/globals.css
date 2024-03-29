@@ -193,7 +193,7 @@ html * {
 
 .footerBack {
 	background-image: url('/images/footerBack.png');
-	background-position-x: -132px;
+	background-position-x: 0px;
 }
 
 ::-webkit-scrollbar {

@@ -5,11 +5,89 @@ import WarrantyComponent from "./warranty"
 export default function FooterOfSite({ data }: any) {
   return (
     <>
+      <div className=" lg:hidden xl:hidden gradient-background 2xl:hidden  min-h-96">
+        <div className=" grid grid-cols-12  ">
+          <div className="col-span-12 ">
+            <div className="w-full text-center items-center p-4 pt-10">
+              <img className=" w-[200px] m-auto" src="./images/logo.png" alt="logo" />
+              <div className=" pt-3 text-center md:text-right text-blue-600 text-[15px] font-medium font-['Peyda']">  ۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</div>
+              <div className="  text-center md:text-right text-blue-600 text-[15px] font-medium font-['Peyda']">تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱ . </div>
 
-      <div className="footer w-full p-10 gradient-background footerBorder bg-left bg-no-repeat  footerBack ">
-        <div className=" grid grid-cols-2  ">
-          
-          <div className="md:col-span-1 sm:col-span-2">
+            </div>
+          </div>
+          <div className="col-span-6 pr-6 ">
+            <ul>
+              {
+                data.topmenu.todetail.map((item: any) => {
+                  return (
+                    <li className="text-right text-slate-500  text-l font-medium font-['Peyda']"><a href={item.data.url}>{item.name}</a></li>
+
+                  )
+                })
+              }
+            </ul>
+          </div>
+          <div className="col-span-6  ">
+            <ul className="pr-11">
+              {
+                data.menu.todetail.map((item: any) => {
+                  return (
+                    <li className="text-right text-slate-500  text-l font-medium font-['Peyda']"><a href={item.data.url}>{item.name}</a></li>
+
+                  )
+                })
+              }
+            </ul>
+          </div>
+          <div className="col-span-12 pt-4 pr-3">
+            <WarrantyComponent></WarrantyComponent>
+          </div>
+          <div className="col-span-12 pt-10 pr-10">
+            <Subscript></Subscript>
+          </div>
+          <div className="col-span-12 pt-10 pr-10">
+            <div className="flex justify-center m-auto">
+              <img className=" p-1 w-8 h-8  " src="./images/linkedin.svg" />
+              <img className=" p-1 w-8 h-8  " src="./images/aparat.svg" />
+              <img className=" p-1 w-8 h-8  " src="./images/telegram.svg" />
+              <img className=" p-1 w-8 h-8  " src="./images/instagram.svg" />
+              <img className=" p-1 w-8 h-8  " src="./images/facebook.svg" />
+            </div>
+          </div>
+
+        </div>
+        <div className="fixed w-full h-[50px]  colorSecondaryBackground bottom-[0px]">
+          <div className="grid grid-cols-12 gap-1">
+            <div className="col-span-2 justify-center mr-1 mt-3">
+              <a href="/">
+                <img className="m-auto justify-center w-6" src="/images/home.svg"  ></img>
+              </a>
+            </div>
+            <div className="col-span-1 justify-center mr-1  mt-3">
+              <a href="/group">
+                <img className="m-auto justify-center  w-6" src="/images/allgroup.svg" width={'30px'} ></img>
+              </a>
+            </div>
+            <div className="col-span-6 justify-center text-center mr-1 mt-3">
+             
+            </div>
+            <div className="col-span-1 justify-center mr-1  mt-3">
+              <a href="/basket">
+                <img className="m-auto justify-center  w-6" src="/images/basket.svg" width={'30px'} ></img>
+              </a>
+            </div>
+            <div className="col-span-2 justify-center mr-1 mt-3">
+              <a href="/login">
+                <img className="m-auto justify-center w-6" src="/images/person.svg"  ></img>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="footer w-full p-10 gradient-background footerBorder bg-left bg-no-repeat  footerBack hidden sm:block ">
+        <div className=" grid grid-cols-12  ">
+
+          <div className="col-span-10 ">
             <div>
               <img className="logo w-[200px]" src="./images/logo.png" alt="logo" />
             </div>

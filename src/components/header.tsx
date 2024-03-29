@@ -24,12 +24,12 @@ export default function Headerofwebsite({ data }: any) {
   }, [ref]);
   return (
     <>
-      <div className="header-top  w-full h-12  colorSecondaryBackground">
+      <div className="header-top  onlysx  w-full h-12  colorSecondaryBackground">
         <div className="menu-top flex justify-center items-center h-full  ">
           <ShowArticle data={data.headerpages.tocomponent}></ShowArticle>
         </div>
       </div>
-      <div className="   lg:hidden xl:hidden  2xl:hidden colorSecondaryBackground ">
+      <div className=" fixed top-0 w-full z-[3000]  lg:hidden xl:hidden  2xl:hidden colorSecondaryBackground ">
         <div className="grid grid-cols-2 w-full p-1">
           <div className="col-span-1 text-right pt-2 pr-3  pl-2">
             <img src="/logo.png" width={'150px'} ></img>
@@ -84,7 +84,7 @@ export default function Headerofwebsite({ data }: any) {
 
             <div className=" w-24 h-6 text-center absolute left-[0px] top-[5px] text-white text-base font-semibold font-['Peyda'] inline">
 
-              <a href="/login">
+              <a href="/login" className="font-['Peyda']">
                 ورود | ثبت نام
               </a>
             </div>
@@ -115,7 +115,7 @@ export default function Headerofwebsite({ data }: any) {
 
             }}
 
-            className="p-[10px]  ml-20">
+            className="p-[10px] cursor-pointer ml-20">
             <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">دسته بندی</span>
             <img src="./images/category.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
             {
