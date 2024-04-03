@@ -32,7 +32,7 @@ export default function Home({ data, headers }: any) {
 
         <div className="mt-24 sm:mt-0">
 
-          <SearchBox></SearchBox>
+          <SearchBox data={headers}></SearchBox>
 
 
           <div className="main-page colorWhiteBackground  w-full h-auto " >

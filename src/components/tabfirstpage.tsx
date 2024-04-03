@@ -62,7 +62,7 @@ export default function Tabfirstpage({ data }: any) {
                                         <div className="justify-center items-center   ">
                                             <a href={`/group/${item2.url}`}>
                                                 {
-                                                    item.masterimage != null && <img className=" w-[126px] mr-auto ml-auto h-[82px]" src={url + item2.masterimage.url} />
+                                                    item2.masterimage != null && <img className=" w-[126px] mr-auto ml-auto h-[82px]" src={url + item2.masterimage.url} />
                                                 }
 
                                                 <div className=" text-center mt-[11px] text-black text-[11px] font-medium font-['Peyda']">{item2.name}</div>

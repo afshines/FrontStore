@@ -65,12 +65,12 @@ export default function Headerofwebsite({ data }: any) {
       // style={{ display:'inherit'}}
       className="middle-menu flex onlysx    justify-between w-full h-24   p-5  bg-white ">
         {
-          data.setting.masterimage != null && <img className="logo w-[170px] h-[40px]" src={url + data.setting.masterimage.url} alt={data.setting.title} />
+          data.setting.masterimage != null && <img className="logo  h-[40px]" src={url + data.setting.masterimage.url} alt={data.setting.title} />
         }
         <div className="search">
           <div className=" w-96 h-9 relative">
             <div className=" w-96 h-9 bg-zinc-100 rounded-md" />
-            <img className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex" src="./images/search.svg" />
+            <img className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex" src="/images/search.svg" />
             <div className=" w-28 h-6 right-[15px] top-[5px] absolute opacity-20 text-center text-neutral-400 text-base font-normal font-['Peyda']">جستجو</div>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function Headerofwebsite({ data }: any) {
           <div className="registerBtn relative w-32 h-10 colorSecondaryBackground rounded-xl border border-neutral-400">
 
             <div className="Frame w-5 h-5 px-0.5 py-0.5 absolute right-[5px] top-[6px] -rotate-180 justify-center items-center inline-flex inline">
-              <img className="  w-6 h-6 " src="./images/login.svg" />
+              <img className="  w-6 h-6 " src="/images/login.svg" />
 
             </div>
 
@@ -92,7 +92,7 @@ export default function Headerofwebsite({ data }: any) {
 
           </div>
 
-          <img className="cart  mr-2  w-6 h-6 px-px py-px justify-center items-center inline-flex" src="./images/cart.svg" />
+          <img className="cart  mr-2  w-6 h-6 px-px py-px justify-center items-center inline-flex" src="/images/cart.svg" />
 
 
 
@@ -117,7 +117,7 @@ export default function Headerofwebsite({ data }: any) {
 
             className="p-[10px] cursor-pointer ml-20">
             <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">دسته بندی</span>
-            <img src="./images/category.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
+            <img src="/images/category.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
             {
               showmega == true && <MegaMenu ref={ref} data={data.groups}></MegaMenu>
 
@@ -133,7 +133,7 @@ export default function Headerofwebsite({ data }: any) {
               <a href="/precent">
                 <div className="flex">
                   <span className="  w-14 h-3.5 text-right leading-relaxed  text-white text-base font-normal font-['Peyda']">تخفیفات</span>
-                  <span><img src="./images/discount.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px" /></span>
+                  <span><img src="/images/discount.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px" /></span>
 
                 </div>
               </a>
@@ -142,7 +142,7 @@ export default function Headerofwebsite({ data }: any) {
               <a href="/sellerlist">
                 <div className="flex">
                   <span className="  w-[100px] h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">پرفروش ترین ها</span>
-                  <span><img src="./images/top.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px " /> </span>
+                  <span><img src="/images/top.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px " /> </span>
 
                 </div>
               </a>
@@ -152,7 +152,7 @@ export default function Headerofwebsite({ data }: any) {
               <a href="/qa">
                 <div className="flex">
                   <span className="  w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']">سوالات</span>
-                  <span><img src="./images/question.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px  " /></span>
+                  <span><img src="/images/question.svg" className="   w-7 h-7 px-0.5 pt-0.5 pb-px  " /></span>
 
                 </div>
               </a>
@@ -167,7 +167,7 @@ export default function Headerofwebsite({ data }: any) {
             <div className="flex">
               <span className=" ml-20 w-14 h-3.5 text-right leading-relaxed  text-neutral-400 text-base font-normal font-['Peyda']  font-extrabold">درباره ما</span>
 
-              <img src="./images/about.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
+              <img src="/images/about.svg" className="  float-right w-7 h-7 px-0.5 pt-0.5 pb-px justify-center items-center inline-flex" />
 
 
             </div>

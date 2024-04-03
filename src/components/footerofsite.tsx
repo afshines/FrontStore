@@ -9,7 +9,7 @@ export default function FooterOfSite({ data }: any) {
         <div className=" grid grid-cols-12  ">
           <div className="col-span-12 ">
             <div className="w-full text-center items-center p-4 pt-10">
-              <img className=" w-[200px] m-auto" src="./images/logo.png" alt="logo" />
+              <img className=" w-[200px] m-auto" src="/images/logo.png" alt="logo" />
               <div className=" pt-3 text-center md:text-right text-blue-600 text-[15px] font-medium font-['Peyda']">  ۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</div>
               <div className="  text-center md:text-right text-blue-600 text-[15px] font-medium font-['Peyda']">تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱ . </div>
 
@@ -47,11 +47,11 @@ export default function FooterOfSite({ data }: any) {
           </div>
           <div className="col-span-12 pt-10 pr-10">
             <div className="flex justify-center m-auto">
-              <img className=" p-1 w-8 h-8  " src="./images/linkedin.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/aparat.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/telegram.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/instagram.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/facebook.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/linkedin.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/aparat.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/telegram.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/instagram.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/facebook.svg" />
             </div>
           </div>
 
@@ -89,7 +89,7 @@ export default function FooterOfSite({ data }: any) {
 
           <div className="col-span-10 ">
             <div>
-              <img className="logo w-[200px]" src="./images/logo.png" alt="logo" />
+              <img className="logo w-[200px]" src="/images/logo.png" alt="logo" />
             </div>
             <div className=" p-5 text-right sm:text-center md:text-right text-blue-600 text-[15px] font-medium font-['Peyda']">تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱ .   |   ۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</div>
             <div className="flex justify-start">
@@ -120,7 +120,7 @@ export default function FooterOfSite({ data }: any) {
               <div className="mr-5 relative w-[140px] h-[41px] bg-white bg-opacity-0 rounded-[14px] border border-neutral-400" >
 
                 <div className=" absolute top-2 right-2 w-[127px] h-6 text-right text-neutral-400 text-[15px] font-medium font-['Peyda']">بازگشت به بالا</div>
-                <img className=" absolute top-3 left-3 w-[18px] h-[10px]  " src="./images/GoUp.png" />
+                <img className=" absolute top-3 left-3 w-[18px] h-[10px]  " src="/images/GoUp.png" />
               </div>
 
             </div>
@@ -129,10 +129,10 @@ export default function FooterOfSite({ data }: any) {
             </div>
             <div className="flex justify-start">
               <img className=" p-1 w-8 h-8  " src="./images/linkedin.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/aparat.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/telegram.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/instagram.svg" />
-              <img className=" p-1 w-8 h-8  " src="./images/facebook.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/aparat.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/telegram.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/instagram.svg" />
+              <img className=" p-1 w-8 h-8  " src="/images/facebook.svg" />
             </div>
           </div>
         </div>
