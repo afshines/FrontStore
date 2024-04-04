@@ -3,7 +3,7 @@ import { url } from "@/data/config"
 import Head from "next/head";
 import '@/app/globals.css'
 import FooterOfSite from "@/components/footerofsite";
-import { Switch } from '@headlessui/react'
+import { Switch } from "@nextui-org/react";
 import React, { useState, useEffect, useRef } from 'react';
 import { Tab } from '@headlessui/react'
 import ShowArticle from "@/components/showarticle";
@@ -15,6 +15,10 @@ export default function Detail({ group, headers, current, products }: any) {
     const [enabled, setEnabled] = useState<any>(false)
     const [masterimage, setMaster] = useState<any>(products.message.masterimage == null ? null : products.message.masterimage.url)
     const breadcump = BreadcrumpCreateor2(products.message.togroup.ToSub)
+    const [currentprice, setCurrent] = useState<any>(products.message._id)
+    const [priceunit, setPriceUnit] = useState<any>(products.message.price)
+    const [count, setCount] = useState<any>(1)
+    const [pricemode, setPriceMode] = useState<any>('main')
 
     return (
 
@@ -114,68 +118,77 @@ export default function Detail({ group, headers, current, products }: any) {
                             </div>
                             <hr ></hr>
                             <div className="mt-3">
-                                {products.message.price != null ?
-                                    <div>
-                                        <div className='flex text-left gap-5 '>
-                                            <div dir="ltr">
-                                                <Switch
-                                                    checked={enabled}
-                                                    onChange={setEnabled}
-                                                    className={`${enabled ? 'bg-blue-600' : 'bg-gray-200'
-                                                        } relative inline-flex h-6 w-11 items-center rounded-full`}
-                                                >
-                                                    <span className="sr-only">Enable notifications</span>
-                                                    <span
-                                                        className={`${enabled ? 'translate-x-6' : 'translate-x-1'
-                                                            } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-                                                    />
-                                                </Switch>
-                                            </div>
-                                            <div className="font-['Peyda'] w-[100px] text-right font-black text-blue-950 ml-3">قیمت: </div>
-                                            <div className="flex">
 
-                                                <div className="font-['Peyda'] font-black text-blue-950">{products.message.price}</div>
-                                                <img src='/images/toman.svg' width={20}></img>
-                                            </div>
-                                        </div>
-                                        <div className=" p-3 w-[300px] mt-3 rounded-[5px]">
-                                            {
-                                                products.message.topricegroup.map((item: any) => {
-                                                    return (<div>
-                                                        <div>{item.title}</div>
-                                                        <div>{item.toprices.map((m: any) => {
-                                                            return (
-                                                                <div className="flex gap-5">
-                                                                    <div dir="ltr">
-                                                                        <Switch
-                                                                            checked={enabled}
-                                                                            onChange={setEnabled}
-                                                                            className={`${enabled ? 'bg-blue-600' : 'bg-gray-200'
-                                                                                } relative inline-flex h-6 w-11 items-center rounded-full`}
-                                                                        >
-                                                                            <span className="sr-only">Enable notifications</span>
-                                                                            <span
-                                                                                className={`${enabled ? 'translate-x-6' : 'translate-x-1'
-                                                                                    } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-                                                                            />
-                                                                        </Switch>
-                                                                    </div>
-                                                                    <div className=" text-right w-[100px]">{m.title}: </div>
-                                                                    <div className="flex">
-                                                                        <div className="font-['Peyda'] font-black text-blue-950" >{m.price}  </div>
-                                                                        <img src='/images/toman.svg' width={20}></img>
-                                                                    </div>
-                                                                </div>
-                                                            )
-                                                        })}</div>
+                                {
+                                    products.message.Available == true ?
+                                        products.message.price != null ?
+                                            <div>
+                                                <div className='flex text-left gap-5 '>
+                                                    <div dir="ltr">
+                                                        <Switch
+                                                            size="sm"
+                                                            onChange={setEnabled}
+                                                            isSelected={currentprice ==  products.message._id ? true : false} 
+                                                            onValueChange={(e)=>{
+                                                                setCurrent(products.message._id);
+                                                                setPriceUnit(products.message.price);
+                                                                setPriceMode('main');
+                                                            }}
+                                                        >
 
-                                                    </div>)
-                                                })
-                                            }
-                                        </div>
-                                    </div>
-                                    :
-                                    <div className="text-center w-full text-red-700 font-bold">تماس حاصل نمایید</div>}
+                                                        </Switch>
+                                                    </div>
+                                                    <div className="font-['Peyda'] w-[100px] text-right font-black text-blue-950 ml-3">قیمت: </div>
+                                                    <div className="flex">
+
+                                                        <div className="font-['Peyda'] font-black text-blue-950">{products.message.price}</div>
+                                                        <img src='/images/toman.svg' width={20}></img>
+                                                    </div>
+                                                </div>
+                                                <div className=" p-3 w-[300px] mt-3 rounded-[5px]">
+                                                    {
+                                                        products.message.topricegroup.map((item: any) => {
+                                                            return (<div>
+                                                                <div>{item.title}</div>
+                                                                <div>{item.toprices.map((m: any) => {
+                                                                    return (
+                                                                        <div className="flex gap-5">
+                                                                            <div dir="ltr">
+                                                                                <Switch
+                                                                                    size="sm"
+                                                                                    onChange={setEnabled}
+                                                                                    isSelected={m._id ==  currentprice ? true : false} 
+                                                                                    onValueChange={(e)=>{
+                                                                                        setCurrent(m._id);
+                                                                                        setPriceUnit(m.price);
+                                                                                        setPriceMode('other');
+                                                                                    }}
+
+                                                                                >
+
+                                                                                </Switch>
+                                                                            </div>
+                                                                            <div className=" text-right w-[100px]">{m.title}: </div>
+                                                                            <div className="flex">
+                                                                                <div className="font-['Peyda'] font-black text-blue-950" >{m.price}  </div>
+                                                                                <img src='/images/toman.svg' width={20}></img>
+                                                                            </div>
+                                                                        </div>
+                                                                    )
+                                                                })}</div>
+
+                                                            </div>)
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
+                                            :
+                                            <div className="text-center w-full text-red-700 font-bold">تماس حاصل نمایید</div>
+
+                                        :
+                                        <div className="text-center w-full text-red-700 font-bold">ناموجود</div>
+
+                                }
                             </div>
                             <div className="mt-3">
                                 <hr></hr>
@@ -188,29 +201,43 @@ export default function Detail({ group, headers, current, products }: any) {
                                     ))}
                                 </div>
                                 <hr></hr>
-                                <div className="flex mt-3 gap-2">
-                                    <div className="w-[221px] h-[45px] bg-slate-500  rounded-[7px]" >
-                                        <div className="text-center pt-2 text-white font-['Peyda']  ">اضافه کردن به سبد خرید</div>
-                                    </div>
+                                {
+                                    products.message.Available == true ?
+                                        <div>
+                                            <div className="flex mt-3 gap-2">
+                                                <div className="w-[221px] h-[45px] bg-slate-500  rounded-[7px]" >
+                                                    <div className="text-center pt-2 text-white font-['Peyda']  ">اضافه کردن به سبد خرید</div>
+                                                </div>
 
-                                    <div>
-                                        <input type="number" value={1} className=" text-center w-[132px] h-[45px] bg-white rounded-[7px] shadow-inner border border-slate-500">
+                                                <div>
+                                                    <input type="number"
+                                                    min={1}
+                                                    onChange={(e)=>{
+                                                        setCount(e.target.value)
+                                                    }}
+                                                    defaultValue={count} className=" text-center w-[132px] h-[45px] bg-white rounded-[7px] shadow-inner border border-slate-500">
 
-                                        </input>
+                                                    </input>
 
-                                    </div>
-                                </div>
-                                <div className="flex mt-3 gap-2">
-                                    <div className="w-[221px] h-[45px]   rounded-[7px]" >
-                                        <div className="text-right pt-2 text-black font-['Peyda']  ">قیمت نهایی</div>
-                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="flex mt-3 gap-2">
+                                                <div className="w-[221px] h-[45px]   rounded-[7px]" >
+                                                    <div className="text-right pt-2 text-black font-['Peyda']  ">قیمت نهایی</div>
+                                                </div>
 
-                                    <div className="flex">
-                                        <div className="mt-3 font-['Peyda'] font-black text-blue-950">10000 </div>
-                                        <img src='/images/toman.svg' width={20}></img>
+                                                <div className="flex">
+                                                    <div className="mt-3 font-['Peyda'] font-black text-blue-950">{priceunit*count} </div>
+                                                    <img src='/images/toman.svg' width={20}></img>
 
-                                    </div>
-                                </div>
+                                                </div>
+                                            </div>
+                                        </div> :
+                                        <div className="text-right pt-2 text-black font-['Peyda']  "></div>
+
+
+                                }
+
                             </div>
                             <div className="w-full grid grid-cols-3 mt-5">
                                 <div >

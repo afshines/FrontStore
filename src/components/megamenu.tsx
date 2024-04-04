@@ -15,12 +15,17 @@ export function MegaMenu({ data }: any) {
                             return (
                                 <div className="h-10 w-[100%]" onMouseOver={() => {
                                     setShow(data.indexOf(item))
-                                }}
-                                >
-                                    <div className="flex group-hover:text-[#F58210] cursor-pointer" >
-                                        <div><img src={` ${currentpage != data.indexOf(item) ? '/images/foldergray.svg' : '/images/folderorang.svg'}`} className="mr-3 w-6 mt-1"></img></div>
-                                        <div className={` mt-1 pt-2 mr-1 text-[12px] ${currentpage == data.indexOf(item) ? 'text-[#F58210]' : 'text-gray-800'}  font-bold font-['Peyda']`}>{item.name}</div>
-                                    </div>
+                                }}   >
+
+                                    <a href={`/group/${item.url}`} className='mt-b leading-10	 '>
+                                        <div className="flex group-hover:text-[#F58210] cursor-pointer" >
+
+                                            <div><img src={` ${currentpage != data.indexOf(item) ? '/images/foldergray.svg' : '/images/folderorang.svg'}`} className="mr-3 w-6 mt-4"></img></div>
+                                            <div className={`  pt-2 mr-1 text-[12px] ${currentpage == data.indexOf(item) ? 'text-[#F58210]' : 'text-gray-800'}  font-bold font-['Peyda']`}>{item.name}</div>
+                                        </div>
+
+                                    </a>
+
                                 </div>
                             )
                         })

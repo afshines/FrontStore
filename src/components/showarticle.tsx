@@ -9,20 +9,20 @@ export default function ShowArticle({ data }: any) {
         var x = '12';
         switch (Grided) {
             case 6:
-                x = 'col-span-6';
+                x = 'sm:col-span-6';
                 break;
             case 4:
-                x = 'col-span-4';
+                x = 'sm:col-span-4';
                 break;
             case 12:
-                x = 'col-span-12';
+                x = 'sm:col-span-12';
                 break;
             case 3:
                 // code to be executed if expression m
                 break;
             // more cases...
             default:
-                x = 'full';
+                x = 'sm:full';
             // code to be executed if expression doesn't match any case
         }
         return x;
@@ -34,10 +34,11 @@ export default function ShowArticle({ data }: any) {
             <div className=" grid grid-cols-12 gap-4 ">
 
                 {
+                    data!=null &&
                     data.map.length != 0 &&
                     data.map((item: any) => {
                         return (
-                            <div className={` ${SwrichGrid(item.cols)} `}  >
+                            <div className={` ${SwrichGrid(item.cols)} col-span-12 `}  >
                                 {item.component == "TextEditor" && <TextEditorShow data={item} ></TextEditorShow>}
                                 {item.component == "Image" && <ImageShow data={item} ></ImageShow>}
                                 {item.component == "Slider" && <SliderShow data={item} ></SliderShow>}
@@ -68,7 +69,9 @@ function TextEditorShow({ data }: any) {
 function ImageShow({ data }: any) {
     return (
         <>
-            {data.images.length != 0 &&
+            {
+            data.images!=null &&
+            data.images.length != 0 &&
                 <>
 
                     <img src={url + data.images[0].url} alt={data.images[0].alt} title={data.images[0].caption} width={'100%'}></img>

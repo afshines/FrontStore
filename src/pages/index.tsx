@@ -31,8 +31,12 @@ export default function Home({ data, headers }: any) {
       <div className="">
 
         <div className="mt-24 sm:mt-0">
+          <div className="bg-[url('/covergroup.png')] w-full h-[300px] bg-no-repeat bg-cover">
+            <div className='container mx-auto mb-4 ' >
+              <SearchBox data={headers}></SearchBox>
+            </div>
+          </div>
 
-          <SearchBox data={headers}></SearchBox>
 
 
           <div className="main-page colorWhiteBackground  w-full h-auto " >
@@ -119,36 +123,28 @@ export default function Home({ data, headers }: any) {
             <div className=" w-full h-[22px] text-center text-slate-800 text-l font-extrabold font-['Peyda']">پیشنهادها</div>
 
 
-            <Cproducts></Cproducts>
+            <Cproducts data={data.productlist}></Cproducts>
 
 
             <div className="grid sm:grid-cols-4 grid-cols-2 gap-1 justify-center items-center pt-15 max-w-[1000px]   m-auto">
-              <div className="bg-zinc-200  w-full  h-[110px] mr-2 flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]   " src="./images/image 7.png" />
-              </div>
-              <div className="bg-zinc-200  w-full h-[110px] mr-2 flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]   " src="./images/image 6.png" />
-              </div>
-              <div className="bg-zinc-200  w-full h-[110px] mr-2  flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]  " src="./images/image 8.png" />
-              </div>
-              <div className="bg-zinc-200  w-full h-[110px]   mr-2 flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]   " src="./images/image 9.png" />
-              </div>
+              {
+                data.companies.map((item:any)=>{
+                  return(
+                    <div className="bg-zinc-200  w-full  h-[110px] mr-2 flex justify-center items-center" >
+                      <a href={`/search?brand=${item.url}`}>
+                      <img className=" w-[200px] h-[61px]  object-contain  " src={`${item.masterimage != null ? url + item.masterimage.url : '/images/noimage.png'}`} />
+
+                      </a>
+
+                  </div>
+                  );
+                })
+              }
+             
+        
 
 
-              <div className="bg-zinc-200 w-full h-[110px]  mr-2 flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]  " src="./images/image 6.png" />
-              </div>
-              <div className="bg-zinc-200  w-full h-[110px] mr-2 flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]  " src="./images/image 8.png" />
-              </div>
-              <div className="bg-zinc-200  w-full h-[110px]   mr-2  flex justify-center items-center" >
-                <img className="w-[71px] h-[61px]   " src="./images/image 10.png" />
-              </div>
-              <div className="bg-zinc-200  w-full h-[110px]   mr-2 flex justify-center items-center" >
-                <img className=" w-[71px] h-[61px]  " src="./images/image 38.png" />
-              </div>
+          
             </div>
 
 
@@ -161,7 +157,7 @@ export default function Home({ data, headers }: any) {
                 <img className=" absolute left-10 top-2  w-[62px] h-[62px] rounded-bl-lg rounded-br-lg" src="./images/renau.png" />
                 <img className=" w-full sm:h-auto   lg:h-[420px] xl:h-[420px] 2xl:h-[420px]    border-t-4 border-orange-500" src="./images/car1.jpg" />
               </div>
-           
+
               <div className="sm:col-span-2 col-span-2 grid sm:grid-cols-1 grid-cols-2  ">
 
                 <div className=" relative pr-1 pl-1 pb-1 w-full mt-1">
@@ -192,10 +188,10 @@ export default function Home({ data, headers }: any) {
               <div className="h-[50px]"></div>
 
               <a href="/aboutus">
-              <div className=" w-[200px] h-[40px]  border border-black relative m-auto" >
-                <img className=" w-[19px] h-[19px] absolute top-[7px] left-[10px]    " src="./images/down-arrow.png"></img>
-                <div className=" w-[141px] h-[22px]  absolute top-[4px]  left-[17px]   m-auto text-right text-slate-800 text-xl font-bold font-['Peyda']">بیشتر بخوانید</div>
-              </div>
+                <div className=" w-[200px] h-[40px]  border border-black relative m-auto" >
+                  <img className=" w-[19px] h-[19px] absolute top-[7px] left-[10px]    " src="./images/down-arrow.png"></img>
+                  <div className=" w-[141px] h-[22px]  absolute top-[4px]  left-[17px]   m-auto text-right text-slate-800 text-xl font-bold font-['Peyda']">بیشتر بخوانید</div>
+                </div>
               </a>
 
             </div>

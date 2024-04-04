@@ -3,12 +3,20 @@ import { url } from '../data/config';
 import { MegaMenu } from "./megamenu";
 import React, { useState, useEffect, useRef } from 'react';
 import CanvasMenu from "./canvas";
-
+import {
+  Autocomplete,
+  AutocompleteSection,
+  AutocompleteItem
+} from "@nextui-org/react";
 export default function Headerofwebsite({ data }: any) {
+  const [search, setSearch] = useState<any>([]);
 
   const [showmega, setShow] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
-
+  const searchItem = () => {
+    console.log(search);
+    window.location.href = "/search?&search=" + search;
+  }
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -45,10 +53,22 @@ export default function Headerofwebsite({ data }: any) {
           <div className="">
             <div className=" w-[400] h-9 relative">
               <div className="  h-9 bg-zinc-100 rounded-md" />
-              <img className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex" src="./images/search.svg" />
+              <button
+                onClick={(e) => {
+                  searchItem();
+                }}
+                className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex"
+              >
+                <img
+
+                  src="./images/search.svg" />
+              </button>
+
               <div className="  w-full h-6 right-[60px] top-[5px] absolute opacity-20 text-center text-black text-base font-normal font-['Peyda']">
                 <input
-
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
                   style={{
                     width: ' 80%',
                     marginLeft: '70px',
@@ -61,17 +81,31 @@ export default function Headerofwebsite({ data }: any) {
           </div>
         </div>
       </div>
-      <div 
-      // style={{ display:'inherit'}}
-      className="middle-menu flex onlysx    justify-between w-full h-24   p-5  bg-white ">
-        {
-          data.setting.masterimage != null && <img className="logo  h-[40px]" src={url + data.setting.masterimage.url} alt={data.setting.title} />
-        }
+      <div
+        // style={{ display:'inherit'}}
+        className="middle-menu flex onlysx    justify-between w-full h-24   p-5  bg-white ">
+        <a href="/">
+          {
+            data.setting.masterimage != null && <img className="logo  h-[40px]" src={url + data.setting.masterimage.url} alt={data.setting.title} />
+          }
+        </a>
+
         <div className="search">
           <div className=" w-96 h-9 relative">
-            <div className=" w-96 h-9 bg-zinc-100 rounded-md" />
-            <img className="inline w-6 h-6 p-0.5 right-[10px] top-[5px] absolute justify-center items-center inline-flex" src="/images/search.svg" />
-            <div className=" w-28 h-6 right-[15px] top-[5px] absolute opacity-20 text-center text-neutral-400 text-base font-normal font-['Peyda']">جستجو</div>
+
+            <input 
+             onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+            
+            className="pr-3 w-96 h-9 bg-zinc-100 rounded-md" ></input>
+            <img 
+              onClick={(e) => {
+                searchItem();
+              }}
+            
+            className="inline cursor-pointer w-6 h-6 p-0.5 left-[10px] top-[5px] absolute justify-center items-center inline-flex" src="/images/search.svg" />
+
           </div>
         </div>
         <div className="flex justify-center items-center">
@@ -125,10 +159,6 @@ export default function Headerofwebsite({ data }: any) {
           </div>
 
           ‍<div className="flex justify-between ">
-
-
-
-
             <div className="flex w-25 justify-between p-[10px] colorPrimaryBackground rounded-tl rounded-tr">
               <a href="/precent">
                 <div className="flex">
