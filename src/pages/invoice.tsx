@@ -304,7 +304,6 @@ export default function Home({ data, headers }: any) {
             </div>
 
             <div className="">
-                <pre>{JSON.stringify(invoice, null, 2)}   </pre>
 
 
                 <FooterOfSite data={headers}></FooterOfSite>
