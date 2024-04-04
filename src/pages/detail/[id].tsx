@@ -10,8 +10,11 @@ import ShowArticle from "@/components/showarticle";
 import ViewpointComponent from "@/components/viewpoint";
 import { BreadcrumpCreateor, BreadcrumpCreateor2 } from "@/data/breadcurmp";
 import ThumpnailProduct from "@/components/thumpnail";
+import { useRouter } from "next/router";
 
 export default function Detail({ group, headers, current, products }: any) {
+    const router = useRouter()
+
     const [enabled, setEnabled] = useState<any>(false)
     const [masterimage, setMaster] = useState<any>(products.message.masterimage == null ? null : products.message.masterimage.url)
     const breadcump = BreadcrumpCreateor2(products.message.togroup.ToSub)
@@ -19,7 +22,28 @@ export default function Detail({ group, headers, current, products }: any) {
     const [priceunit, setPriceUnit] = useState<any>(products.message.price)
     const [count, setCount] = useState<any>(1)
     const [pricemode, setPriceMode] = useState<any>('main')
+    const AddTobasket = () => {
+        var invoice = localStorage.getItem('invoice') as any;
+        if (invoice == null) {
+            invoice = [];
+        } else {
+            invoice = JSON.parse(invoice);
+        }
+        var add = {
+            Qty: count,
+            setPriceUnit: pricemode,
+            currentprice: currentprice,
+            products: products.message._id
 
+        }
+
+        invoice.push(add);
+        // console.log(invoice);
+
+        localStorage.setItem('invoice', JSON.stringify(invoice));
+
+        router.push('/invoice')
+    }
     return (
 
         <>
@@ -105,11 +129,11 @@ export default function Detail({ group, headers, current, products }: any) {
 
                             </div>
                             {
-                                products.message.brand.length != 0 && <div className="font-normal  mt-2 mb-1  ">شرکت :</div>
+                             products.message.brand!= undefined &&    products.message.brand.length != 0 && <div className="font-normal  mt-2 mb-1  ">شرکت :</div>
                             }
                             <div className="flex">
                                 {
-                                    products.message.brand.map((item: any) => {
+                                      products.message.brand!= undefined &&  products.message.brand.map((item: any) => {
                                         return (
                                             <div className="mr-1 text-sm font-bold	 text-cyan-950   p-1 ">{item.name} </div>
                                         )
@@ -128,8 +152,8 @@ export default function Detail({ group, headers, current, products }: any) {
                                                         <Switch
                                                             size="sm"
                                                             onChange={setEnabled}
-                                                            isSelected={currentprice ==  products.message._id ? true : false} 
-                                                            onValueChange={(e)=>{
+                                                            isSelected={currentprice == products.message._id ? true : false}
+                                                            onValueChange={(e) => {
                                                                 setCurrent(products.message._id);
                                                                 setPriceUnit(products.message.price);
                                                                 setPriceMode('main');
@@ -157,8 +181,8 @@ export default function Detail({ group, headers, current, products }: any) {
                                                                                 <Switch
                                                                                     size="sm"
                                                                                     onChange={setEnabled}
-                                                                                    isSelected={m._id ==  currentprice ? true : false} 
-                                                                                    onValueChange={(e)=>{
+                                                                                    isSelected={m._id == currentprice ? true : false}
+                                                                                    onValueChange={(e) => {
                                                                                         setCurrent(m._id);
                                                                                         setPriceUnit(m.price);
                                                                                         setPriceMode('other');
@@ -205,17 +229,17 @@ export default function Detail({ group, headers, current, products }: any) {
                                     products.message.Available == true ?
                                         <div>
                                             <div className="flex mt-3 gap-2">
-                                                <div className="w-[221px] h-[45px] bg-slate-500  rounded-[7px]" >
+                                                <div onClick={(e)=>{AddTobasket()}} className="w-[221px] h-[45px] cursor-pointer bg-slate-500  rounded-[7px]" >
                                                     <div className="text-center pt-2 text-white font-['Peyda']  ">اضافه کردن به سبد خرید</div>
                                                 </div>
 
                                                 <div>
                                                     <input type="number"
-                                                    min={1}
-                                                    onChange={(e)=>{
-                                                        setCount(e.target.value)
-                                                    }}
-                                                    defaultValue={count} className=" text-center w-[132px] h-[45px] bg-white rounded-[7px] shadow-inner border border-slate-500">
+                                                        min={1}
+                                                        onChange={(e) => {
+                                                            setCount(e.target.value)
+                                                        }}
+                                                        defaultValue={count} className=" text-center w-[132px] h-[45px] bg-white rounded-[7px] shadow-inner border border-slate-500">
 
                                                     </input>
 
@@ -227,7 +251,7 @@ export default function Detail({ group, headers, current, products }: any) {
                                                 </div>
 
                                                 <div className="flex">
-                                                    <div className="mt-3 font-['Peyda'] font-black text-blue-950">{priceunit*count} </div>
+                                                    <div className="mt-3 font-['Peyda'] font-black text-blue-950">{priceunit * count} </div>
                                                     <img src='/images/toman.svg' width={20}></img>
 
                                                 </div>

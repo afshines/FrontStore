@@ -24,7 +24,7 @@ export default function ThumpnailProduct({ data }: any) {
                             <div className='flex text-left pt-3 '>
 
                                 <div className="font-['Peyda'] font-black text-orange-600">{data.price}</div>
-                                <img src='/images/toman.svg' width={20}></img>
+                                <img src='/images/toman.svg' width={19}></img>
 
 
                             </div>
