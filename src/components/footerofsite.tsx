@@ -1,7 +1,12 @@
 import Certificate from "./certificate"
 import Subscript from "./subscript"
 import WarrantyComponent from "./warranty"
+const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
 
+function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 export default function FooterOfSite({ data }: any) {
   return (
     <>
@@ -117,7 +122,7 @@ export default function FooterOfSite({ data }: any) {
           </div>
           <div className="md:col-span-1 sm:col-span-2" >
             <div>
-              <div className="mr-5 relative w-[140px] h-[41px] bg-white bg-opacity-0 rounded-[14px] border border-neutral-400" >
+              <div   onClick={scrollToTop} className="mr-5 cursor-pointer relative w-[140px] h-[41px] bg-white bg-opacity-0 rounded-[14px] border border-neutral-400" >
 
                 <div className=" absolute top-2 right-2 w-[127px] h-6 text-right text-neutral-400 text-[15px] font-medium font-['Peyda']">بازگشت به بالا</div>
                 <img className=" absolute top-3 left-3 w-[18px] h-[10px]  " src="/images/GoUp.png" />
