@@ -61,7 +61,7 @@ export default function Headerofwebsite({ data }: any) {
               >
                 <img
 
-                  src="./images/search.svg" />
+                  src="/images/search.svg" />
               </button>
 
               <div className="  w-full h-6 right-[60px] top-[5px] absolute opacity-20 text-center text-black text-base font-normal font-['Peyda']">

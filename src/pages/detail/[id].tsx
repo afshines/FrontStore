@@ -35,7 +35,7 @@ export default function Detail({ group, headers, current, products }: any) {
                 <meta name="description" content={products.message.description} />
             </Head>
             <Headerofwebsite data={headers}></Headerofwebsite>
-            <div className="bg-white pt-3 pb-3 mt-1">
+            <div className="bg-white pt-3 pb-3 sm:mt-1 mt-[100px]">
 
                 <div className="container m-auto ">
                     <div className='bg-white w-full border-t-gray-100 mt-1 pt-4 pb-4'>
@@ -45,9 +45,9 @@ export default function Detail({ group, headers, current, products }: any) {
                         <div className="col-span-2 sm:col-span-1">
                             <div className=" ">
 
-                                <div className=" text-center mt-3 h-[510px] border-2 m-4 ">
+                                <div className=" text-center mt-3 h-[310px] sm:h-[510px] border-2 m-4 ">
                                     {masterimage != null &&
-                                        <img className=" h-[500px] m-auto"
+                                        <img className=" h-[300px] sm:h-[500px]  m-auto"
                                             title={products.message.name}
                                             alt={products.message.name}
 
