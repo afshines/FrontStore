@@ -81,13 +81,13 @@ export default function Home({ data, headers }: any) {
                                                                     <div className="p-3" >
                                                                     <div className="grid grid-cols-12 p-3 mb-4" >
                                                                     <div className="col-span-2" >
-                                                                                <div className="pt-1 text-center" pt={1} >
+                                                                                <div className="pt-1 text-center" >
                                                                                     <img src={item.icon} width={40}></img>
 
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-span-10">
-                                                                                <div className="pt-1 text-center" >
+                                                                                <div className="pt-1 text-center" >p
                                                                                     <div className="text-right" >{item.name}</div>
 
                                                                                 </div>
