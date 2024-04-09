@@ -3033,6 +3033,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
+fs@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==
+
 fsevents@~2.3.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
@@ -4061,6 +4066,11 @@ react-countdown@^2.3.5:
   dependencies:
     prop-types "^15.7.2"
 
+react-date-object@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/react-date-object/-/react-date-object-2.1.8.tgz#2bc482f950d11f241bb127b08ab8152c12c2f80c"
+  integrity sha512-94zg/9r29v/VsKsJT0E5+tPg85IyMirkU/B7qBWlhT7RDSuf9x5dczfbQOsj9TbzSVUK/Vx/ZDboOBy9hA381w==
+
 react-dom@^16.9.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
@@ -4079,6 +4089,11 @@ react-dom@^18:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-element-popper@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/react-element-popper/-/react-element-popper-2.1.6.tgz#4afb912287d57de5d442fb85e76f4d7b94fde879"
+  integrity sha512-8va7mUmrKIkUnaM2t5Dyctd8cjgVgVcrv5vVD0FRay0sN6EPBCKa0bDi1/KmVDAjfgSIn7zQnjtc4VojcGrkgQ==
+
 react-hook-form@^7.51.2:
   version "7.51.2"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.51.2.tgz#79f7f72ee217c5114ff831012d1a7ec344096e7f"
@@ -4093,6 +4108,14 @@ react-multi-carousel@^2.8.4:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.8.4.tgz#eee6493878974e372e5aa9944754602ec0f34968"
   integrity sha512-7Is5Wr+m2ebkR+oq2Su2tjUdBwpVtB2O6Tjb74KDNfxWe/FrsTQwezTJTk/r9cKCrRp9Li308v822/5bZm7XKg==
+
+react-multi-date-picker@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/react-multi-date-picker/-/react-multi-date-picker-4.4.1.tgz#98e137ab4829f69385d9e14f8ff6d48f31e180c8"
+  integrity sha512-z0utCiMYijt2w3UoVJkYgsReE9l1k6DkiL13Vr2RKHnBnorKK0IYq7xpfkuMimvt7sLumFr5wTKsWumCgSkXkA==
+  dependencies:
+    react-date-object "^2.1.8"
+    react-element-popper "^2.1.6"
 
 react-paginate@^8.2.0:
   version "8.2.0"

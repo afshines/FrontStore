@@ -145,7 +145,7 @@ export default function ({ group, headers, current, products }: any) {
                     <div className='text-right  text-white '>محدودیت قیمت</div>
                 </div>
                 <div className='w-full p-5'>
-                    {max != 0 &&
+                   {isNaN(max)==false  && isNaN(min)==false && max != 0 && min != 0 &&
                         <div className='mt-3' dir='ltr'>
                             <div className='text-center w-full' dir='rtl'>
                                 <div> {low}  الی {high} تومان</div>
@@ -172,7 +172,7 @@ export default function ({ group, headers, current, products }: any) {
                                 </div>
                             </div>
                         </div>
-                    }
+                    } 
                 </div>
                 <div className='w-full bg-[#4C72A2] h-[40x] p-3 mt-3'>
                     <div className='text-right  text-white '>سایر </div>
@@ -270,7 +270,6 @@ export default function ({ group, headers, current, products }: any) {
                                                 <div className='bg-[#F0F0F1] h-[120px] pt-[19px] col-span-3 sm:col-span-1'>
                                                     <a href={`/search?group=${current}&brand=${item.url}`}>
                                                         <div className='text-center'>
-                                                            {/* <pre>{ JSON.stringify(item.masterimage,null,2) }</pre> */}
                                                             <img className='w-[130px] m-auto h-[80px] object-contain' src={`${item.masterimage != null ? url + item.masterimage.url : '/images/noimage.png'}`}></img>
                                                         </div>
                                                     </a>
@@ -332,7 +331,7 @@ export default function ({ group, headers, current, products }: any) {
                     </div>
                 </div>
             </div>
-
+                            <pre>{ JSON.stringify(products,null,2) }</pre>
             <FooterOfSite data={headers}></FooterOfSite>
 
         </>

@@ -3,43 +3,14 @@ import Headerofwebsite from "@/components/header";
 import SearchBox from "@/components/searchbox";
 import Image from "next/image";
 import '@/app/globals.css'
-import { url } from '../../data/config';
+import { url } from '@/data/config';
 import Head from 'next/head'
 import ShowArticle from "@/components/showarticle";
 import Tabfirstpage from "@/components/tabfirstpage";
-import { useState, useEffect } from "react";
-import { getCookies, setCookie } from "cookies-next";
-import { useRouter } from "next/router";
-import { DashboardMenu } from "@/sys/dashboard"
-import TabProfile from "@/components/tabprofile"
 import BreadCrumpTiss from '@/components/breadcrump';
+import { Button } from "@nextui-org/react";
 
-import axios from "axios";
-import DashboardMenus from "@/components/dashboard";
 export default function Home({ data, headers }: any) {
-    const [userdata, setUserData] = useState<any>(null);
-    let cookie = getCookies();
-    const router = useRouter()
-
-    const loaduset = async () => {
-        return await axios.get(`${url}/v1/auth/info`, {
-            headers: {
-                Authorization: 'Bearer ' + cookie['token'],
-
-            }
-        }).then(async function (res: any) {
-            console.log(res);
-            setUserData(res.data.message)
-            if (res.data.message.name == undefined) {
-                router.push('/dashboard/profile')
-            }
-        })
-    }
-    useEffect(() => {
-        loaduset();
-
-
-    }, []);
     const breadcrump = [
         {
             name: 'خانه',
@@ -47,7 +18,7 @@ export default function Home({ data, headers }: any) {
         },
 
         {
-            name: 'داشبورد',
+            name: 'همه  گروه ها',
         }
     ]
     return (
@@ -67,35 +38,49 @@ export default function Home({ data, headers }: any) {
 
             </Head>
             <Headerofwebsite data={headers}></Headerofwebsite>
-            <div className="bg-white pt-20">
-                
-            <DashboardMenus active={'dashboard'} ></DashboardMenus> 
 
-                <div className="w-[100%] min-h-[400px]" >
-                    <div className="container m-auto">
+            <div className="bg-white">
+                <div className="container m-auto pt-3">
                     <BreadCrumpTiss data={breadcrump} ></BreadCrumpTiss>
-                    <hr ></hr>
+                    <hr></hr>
+                    <h1 className="font-['peyda'] text-black text-[22px] mt-3 ">{'همه گروه ها'}</h1>
 
-                        <div className="grid grid-cols-12  container m-auto" >
-                            <div className="col-span-12">
-                            </div>
-                            <div className="col-span-12">
-                                {userdata != null && <>
-                                    <div>
-                                        <h3 className="text-[20px]"> { userdata.name } خوش آمدید</h3>
+                </div>
+                <div className="container m-auto" >
+                    <div className="grid  grid-cols-2 sm:grid-cols-4">
+
+                        {
+                            headers.allgroups.map((item: any) => {
+                                return (
+                                    <div className=" mt-1 mr-1 ml-1 mt-3 mb-3 ">
+                                        <a href={`/group/${item.url}`}>
+                                        {item.masterimage != null ?
+                                            <img className={`w-full m-auto h-[200px] object-contain    `} src={url + item.masterimage.path + '/thump/' + item.masterimage.name} ></img>
+                                            :
+                                            <img className={`w-full m-auto h-[200px] object-contain   `}
+                                                src={`/images/noimage.png`} ></img>
+
+
+                                        }
+                                        <div className="w-full mt-3 text-center">
+                                            {item.name}
+                                        </div>
+
+                                        </a>
+                                       
                                     </div>
-                                </>}
-                            </div>
 
-                        </div>
+                                )
+                            })
+                        }
                     </div>
 
                 </div>
             </div>
-            <div className="">
 
-                <FooterOfSite data={headers}></FooterOfSite>
-            </div>
+
+            <FooterOfSite data={headers}></FooterOfSite>
+
 
         </div>
 

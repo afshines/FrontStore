@@ -15,6 +15,7 @@
     "axios": "^1.6.8",
     "cookies-next": "^4.1.1",
     "framer-motion": "^11.0.24",
+    "fs": "^0.0.1-security",
     "multi-range-slider-react": "^2.0.7",
     "next": "14.1.0",
     "next-image-gallery": "^0.0.11",
@@ -26,6 +27,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.2",
     "react-multi-carousel": "^2.8.4",
+    "react-multi-date-picker": "^4.4.1",
     "react-paginate": "^8.2.0",
     "sweetalert2": "^11.10.7",
     "swiper": "^11.0.7"

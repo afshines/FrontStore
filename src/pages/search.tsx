@@ -43,12 +43,12 @@ export default function Home({ data, headers, list,url }: any) {
                         </div>
                     </div>
 
-                    <div className="main-page bg-white  w-full h-auto " >
+                    <div className="main-page bg-white  w-full h-auto m-3 " >
                         <SearchFilter list={list}></SearchFilter>
 
                     </div>
                     <div className="w-full m-auto container pt-3 mb-19">
-                        <div className='flex gap-1 container m-auto  m-10 mr-10 '>
+                        <div className='flex gap-1 container   m-10 mr-10 '>
 
                             {[...Array(list.message.totalPages)].map((e, i) => {
                                 return <div

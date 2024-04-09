@@ -63,12 +63,10 @@ export default function Detail({ group, headers, current, products }: any) {
 
                 <div className="container m-auto ">
                     <div className='bg-white w-full border-t-gray-100 mt-1 pt-4 pb-4'>
-
                     </div>
                     <div className="grid grid-cols-2">
                         <div className="col-span-2 sm:col-span-1">
                             <div className=" ">
-
                                 <div className=" text-center mt-3 h-[310px] sm:h-[510px] border-2 m-4 ">
                                     {masterimage != null &&
                                         <img className=" h-[300px] sm:h-[500px]  m-auto"
@@ -98,13 +96,11 @@ export default function Detail({ group, headers, current, products }: any) {
                                         )
                                     })}
                                 </div>
-
                             </div>
                         </div>
                         <div className="col-span-2 sm:col-span-1">
                             <div className='container mx-auto mb-4 ' >
                                 <div className='flex'>
-
                                     {
                                         breadcump.map((item: any) => {
                                             return <div className='p-1 pr-2 '> <a href={item.url} className="font-['peyda']">{item.name} </a> &#11164; </div>
@@ -118,7 +114,6 @@ export default function Detail({ group, headers, current, products }: any) {
                                 products.message.vehicle != undefined && products.message.vehicle.length != 0 && <div className="font-normal  mt-5 mb-1  ">مناسب برای خودروهای:</div>
                             }
                             <div className="flex">
-
                                 {
                                     products.message.vehicle != undefined && products.message.vehicle.map((item: any) => {
                                         return (
@@ -129,11 +124,11 @@ export default function Detail({ group, headers, current, products }: any) {
 
                             </div>
                             {
-                             products.message.brand!= undefined &&    products.message.brand.length != 0 && <div className="font-normal  mt-2 mb-1  ">شرکت :</div>
+                                products.message.brand != undefined && products.message.brand.length != 0 && <div className="font-normal  mt-2 mb-1  ">شرکت :</div>
                             }
                             <div className="flex">
                                 {
-                                      products.message.brand!= undefined &&  products.message.brand.map((item: any) => {
+                                    products.message.brand != undefined && products.message.brand.map((item: any) => {
                                         return (
                                             <div className="mr-1 text-sm font-bold	 text-cyan-950   p-1 ">{item.name} </div>
                                         )
@@ -159,7 +154,6 @@ export default function Detail({ group, headers, current, products }: any) {
                                                                 setPriceMode('main');
                                                             }}
                                                         >
-
                                                         </Switch>
                                                     </div>
                                                     <div className="font-['Peyda'] w-[100px] text-right font-black text-blue-950 ml-3">قیمت: </div>
@@ -208,10 +202,8 @@ export default function Detail({ group, headers, current, products }: any) {
                                             </div>
                                             :
                                             <div className="text-center w-full text-red-700 font-bold">تماس حاصل نمایید</div>
-
                                         :
                                         <div className="text-center w-full text-red-700 font-bold">ناموجود</div>
-
                                 }
                             </div>
                             <div className="mt-3">
@@ -229,7 +221,7 @@ export default function Detail({ group, headers, current, products }: any) {
                                     products.message.Available == true ?
                                         <div>
                                             <div className="flex mt-3 gap-2">
-                                                <div onClick={(e)=>{AddTobasket()}} className="w-[221px] h-[45px] cursor-pointer bg-slate-500  rounded-[7px]" >
+                                                <div onClick={(e) => { AddTobasket() }} className="w-[221px] h-[45px] cursor-pointer bg-slate-500  rounded-[7px]" >
                                                     <div className="text-center pt-2 text-white font-['Peyda']  ">اضافه کردن به سبد خرید</div>
                                                 </div>
 
@@ -240,9 +232,7 @@ export default function Detail({ group, headers, current, products }: any) {
                                                             setCount(e.target.value)
                                                         }}
                                                         defaultValue={count} className=" text-center w-[132px] h-[45px] bg-white rounded-[7px] shadow-inner border border-slate-500">
-
                                                     </input>
-
                                                 </div>
                                             </div>
                                             <div className="flex mt-3 gap-2">
@@ -253,15 +243,11 @@ export default function Detail({ group, headers, current, products }: any) {
                                                 <div className="flex">
                                                     <div className="mt-3 font-['Peyda'] font-black text-blue-950">{priceunit * count} </div>
                                                     <img src='/images/toman.svg' width={20}></img>
-
                                                 </div>
                                             </div>
                                         </div> :
                                         <div className="text-right pt-2 text-black font-['Peyda']  "></div>
-
-
                                 }
-
                             </div>
                             <div className="w-full grid grid-cols-3 mt-5">
                                 <div >
@@ -277,11 +263,8 @@ export default function Detail({ group, headers, current, products }: any) {
                                     <img src="/images/lines.png" />
                                     <img src="/images/bars.png" />
                                 </div>
-
-
                             </div>
                         </div>
-
                     </div>
                     <div className="grid grid-cols-2">
                         <div className="w-full p-4 col-span-2 sm:col-span-1">
@@ -299,7 +282,6 @@ export default function Detail({ group, headers, current, products }: any) {
                                             <div className="font-bold">معرفی</div>
                                             <hr />
                                             <ShowArticle data={products.message.tocomponent}></ShowArticle>
-
                                         </div>
                                     </Tab.Panel>
                                     <Tab.Panel>
@@ -315,15 +297,11 @@ export default function Detail({ group, headers, current, products }: any) {
                                                 ))}
                                             </div>
                                             <div className="mt-3">
-
                                                 {
                                                     products.message.Features != undefined &&
                                                     Object.entries(products.message.Features).map(([key, value]: any) => (
                                                         <div key={key} className="flex">
-                                                            {value == true && <><strong>{key}  </strong><img className="mr-3" src="/images/tik.svg" width={20}></img></>
-
-
-                                                            }
+                                                            {value == true && <><strong>{key}  </strong><img className="mr-3" src="/images/tik.svg" width={20}></img></> }
                                                         </div>
                                                     ))}
                                             </div>
@@ -341,11 +319,9 @@ export default function Detail({ group, headers, current, products }: any) {
                                         <hr />
                                         <ViewpointComponent id={products.message._id}></ViewpointComponent>
                                     </div></Tab.Panel>
-
                                 </Tab.Panels>
                             </Tab.Group>
                         </div>
-
                         <div className="col-span-2 sm:col-span-1">
                             <div className=" mb-3 mt-14">
                                 <div className="text-right  font-extrabold font-['Peyda'] text-[#F58210]  ">محصولات مشابه</div>
@@ -361,15 +337,12 @@ export default function Detail({ group, headers, current, products }: any) {
                                         </div>
                                     )
                                 })}
-
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
             <FooterOfSite data={headers}></FooterOfSite>
-
         </>
     );
 }

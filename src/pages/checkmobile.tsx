@@ -16,7 +16,7 @@ import { Button, ButtonGroup, Textarea, Input } from "@nextui-org/react";
 import { TokenUser } from '@/sys/userapi'
 import Countdown from 'react-countdown';
 
-export default function Home({ data, headers }: any) {
+export default function Home({ data, headers,aricle }: any) {
     const [code, setCode] = useState<any>(null);
     const [userdata, setUserData] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(false);
@@ -90,19 +90,19 @@ export default function Home({ data, headers }: any) {
                     <div className="w-[140px] mr-auto ml-auto">
                         <div className="flex gap-3">
                             <div >
-                                <div className="p-3 text-white">
+                                <div className="p-3 text-black">
                                     {minutes}
                                 </div>
                             </div>
                             <div >
-                                <div className="p-3 text-white">
+                                <div className="p-3 text-black">
                                     {seconds}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="pt-2 pb-3">
-                        <Input onChange={(e) => { setCode(e.target.value) }} style={{ width: '150px', textAlign: 'center' }} placeholder="کد تایید"></Input>
+                    <div className="pt-2 pb-3 m-auto mb-4  w-[200px]">
+                        <Input onChange={(e) => { setCode(e.target.value) }} style={{ width: '100%', textAlign: 'center' }} placeholder="کد تایید"></Input>
 
                     </div>
                     <div>
@@ -144,26 +144,39 @@ export default function Home({ data, headers }: any) {
                 <meta name="keywords" content={headername} />
                 <meta name="description" content={headername} />
             </Head>
-            <div className="pb-3 bg-white " >
-                <div className=" text-center">
-                    <div
-                        className="border-solid-[4px]  p-11 w-[300px] mr-auto ml-auto p-2 rounded bg-zinc-700 "
-                    >
-                        <div className="text-center mt-3" >
-                            <img src={'/logo.png'} width={'100px'} />
-                            <Countdown date={Date.now() + 300000}
+            
+            <div className=" bg-white ">
+                <div className="text-center bg-slate-300 ">
+                    <div className="  text-center">
+
+                        <div className="grid grid-cols-3 w-full loginpagemobile ">
+
+                            <div className={`col-span-3 sm:col-span-2 `}>
+
+                                <div className={`w-[300px] align-middle m-auto mt-[20vh] h-[400px] bg-white bg-opacity-90	 pt-10 rounded-large `}>
+                                    {
+                                        headers.setting.masterimage != null && <img className="logo  m-auto mb-14 h-[40px]" src={url + headers.setting.masterimage.url} alt={data.setting.title} />
+                                    }
+                                          <Countdown date={Date.now() + 300000}
                                 renderer={renderer}
 
                             />
+                                </div>
+                            </div>
+                            <div className="invisible sm:visible col-span-1">
+
+                                {
+                                    aricle.message.masterimage != null &&
+                                    <div>
+                                        <img className="w-full h-[80vh] object-cover" src={url + aricle.message.masterimage.url}></img>
+                                    </div>
+                                }
+                            </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
-
             </div>
+           
 
             <FooterOfSite data={headers}></FooterOfSite>
 
@@ -176,12 +189,17 @@ export const getServerSideProps = async (context: any) => {
     const res = await fetch(`${url}/v1/firstpage`);
     const res2 = await fetch(`${url}/v1/headerinfo`);
     const headers = await res2.json();
+    const res3 = await fetch(`${url}/v1/article/register-page`);
+
+    const aricle = await res3.json();
 
     const data = await res.json();
     return {
         props: {
             data: data,
-            headers: headers
+            headers: headers,
+            aricle: aricle
+
         },
     }
 }

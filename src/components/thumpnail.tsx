@@ -6,9 +6,14 @@ export default function ThumpnailProduct({ data }: any) {
         <div className={`w-full align-middle m-auto`} >
             <a href={`/detail/${data.url}`}>
 
-                {data.masterimage != null &&
+                {data.masterimage != null ?
                     <img className={`w-full m-auto h-[200px] object-contain  ${data.Available == false && 'grayscale'}    `} src={url + data.masterimage.path + '/thump/' + data.masterimage.name} ></img>
-                }
+               :
+               <img className={`w-full m-auto h-[200px] object-contain  ${data.Available == false && 'grayscale'}    `} 
+               src={`/images/noimage.png`} ></img>
+
+               
+               }
                 <div className='mt-3 w-full'>
                     <div className='text-sky-900 font-bold text-[12px] pb-3'>
                         {data.togroup.name}

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import '@/app/globals.css'
 import FooterOfSite from '@/components/footerofsite';
 import ShowArticle from '@/components/showarticle';
+import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 
 export default function BlogGroup({ headers, group, current }: any) {
     const router = useRouter();
@@ -54,7 +55,9 @@ export default function BlogGroup({ headers, group, current }: any) {
                         <div className="font-['peyda'] pl-2 pr-2 " > <a>{group.message.name}</a> </div>
                     </div>
                     <div className='mt-3 '>
+
                         <div className='' >
+                           
                             <h1 className="font-['peyda'] font-black ">{group.message.name}</h1>
                         </div>
                         <ShowArticle data={group.message.tocomponent}></ShowArticle>

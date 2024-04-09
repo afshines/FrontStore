@@ -231,10 +231,16 @@ html * {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+.loginpagemobile{
+	background-image: none;
+}
 @media only screen and (max-width: 600px) {
 
 .onlysx{
 	display: none;
 }
-
+.loginpagemobile{
+	background-image:url('/car.jpg');
+	background-size:contain;
+}
 }

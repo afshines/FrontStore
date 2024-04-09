@@ -9,7 +9,7 @@ import ShowArticle from "@/components/showarticle";
 import Tabfirstpage from "@/components/tabfirstpage";
 import LoginComponent from "@/components/loginComponent";
 
-export default function Home({ data, headers }: any) {
+export default function Home({ data, headers, aricle }: any) {
     return (
 
         <div className="">
@@ -28,14 +28,31 @@ export default function Home({ data, headers }: any) {
             </Head>
             <Headerofwebsite data={headers}></Headerofwebsite>
 
-            <div className=" bg-white pb-40">
-                <div className="pt-40 text-center bg-white ">
-                    <div className="w-[300px] m-auto container mt-20 text-center">
-                        {
-                            headers.setting.masterimage != null && <img className="logo  m-auto mb-14 h-[40px]" src={url + headers.setting.masterimage.url} alt={data.setting.title} />
-                        }
-                        <LoginComponent></LoginComponent>
-                        <div className="mt-10"></div>
+            <div className=" bg-white ">
+                <div className="text-center bg-slate-300 ">
+                    <div className="  text-center">
+
+                        <div className="grid grid-cols-3 w-full loginpagemobile ">
+
+                            <div className={`col-span-3 sm:col-span-2 `}>
+
+                                <div className={`w-[300px] align-middle m-auto mt-[20vh] h-[400px] bg-white bg-opacity-90	 pt-10 rounded-large `}>
+                                    {
+                                        headers.setting.masterimage != null && <img className="logo  m-auto mb-14 h-[40px]" src={url + headers.setting.masterimage.url} alt={data.setting.title} />
+                                    }
+                                    <LoginComponent></LoginComponent>
+                                </div>
+                            </div>
+                            <div className="invisible sm:visible col-span-1">
+
+                                {
+                                    aricle.message.masterimage != null &&
+                                    <div>
+                                        <img className="w-full h-[80vh] object-cover" src={url + aricle.message.masterimage.url}></img>
+                                    </div>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -54,12 +71,15 @@ export const getServerSideProps = async (context: any) => {
     const res = await fetch(`${url}/v1/firstpage`);
     const res2 = await fetch(`${url}/v1/headerinfo`);
     const headers = await res2.json();
+    const res3 = await fetch(`${url}/v1/article/register-page`);
+    const aricle = await res3.json();
 
     const data = await res.json();
     return {
         props: {
             data: data,
-            headers: headers
+            headers: headers,
+            aricle: aricle
         },
     }
 }

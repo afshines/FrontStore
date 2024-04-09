@@ -33,7 +33,7 @@ export default function LoginComponent() {
 
     };
     return (
-        <div className="pb-4 shadow p-4 ">
+        <div className="pb-4 shadow p-4  ">
             <form onSubmit={handleSubmit(onSubmit)} dir="ltr"  >
                 <div className="text-center mb-4" >شماره همراه خود را وارد نمایید</div>
                 <Input onChange={(e) => { setPhone(e.target.value) }} type="number" className="text-left" placeholder="09XXXXXXXX"> </Input>
