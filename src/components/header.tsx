@@ -118,7 +118,7 @@ export default function Headerofwebsite({ data }: any) {
 
             <div className=" w-24 h-6 text-center absolute left-[0px] top-[5px] text-white text-base font-semibold font-['Peyda'] inline">
 
-              <a href="/login" className="font-['Peyda']">
+              <a href="/login" className="font-['peyda']">
                 ورود | ثبت نام
               </a>
             </div>

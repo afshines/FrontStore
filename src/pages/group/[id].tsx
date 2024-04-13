@@ -331,7 +331,6 @@ export default function ({ group, headers, current, products }: any) {
                     </div>
                 </div>
             </div>
-                            <pre>{ JSON.stringify(products,null,2) }</pre>
             <FooterOfSite data={headers}></FooterOfSite>
 
         </>

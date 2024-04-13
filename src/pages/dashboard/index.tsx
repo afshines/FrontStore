@@ -68,13 +68,13 @@ export default function Home({ data, headers }: any) {
             </Head>
             <Headerofwebsite data={headers}></Headerofwebsite>
             <div className="bg-white pt-20">
-                
-            <DashboardMenus active={'dashboard'} ></DashboardMenus> 
+
+                <DashboardMenus active={'dashboard'} ></DashboardMenus>
 
                 <div className="w-[100%] min-h-[400px]" >
                     <div className="container m-auto">
-                    <BreadCrumpTiss data={breadcrump} ></BreadCrumpTiss>
-                    <hr ></hr>
+                        <BreadCrumpTiss data={breadcrump} ></BreadCrumpTiss>
+                        <hr ></hr>
 
                         <div className="grid grid-cols-12  container m-auto" >
                             <div className="col-span-12">
@@ -82,10 +82,30 @@ export default function Home({ data, headers }: any) {
                             <div className="col-span-12">
                                 {userdata != null && <>
                                     <div>
-                                        <h3 className="text-[20px]"> { userdata.name } خوش آمدید</h3>
+                                        <h3 className="text-[20px]"> {userdata.name} خوش آمدید</h3>
                                     </div>
                                 </>}
                             </div>
+                            {
+                                DashboardMenu.map((item): any => {
+                                    return (
+                                        DashboardMenu.indexOf(item)!=0 &&
+                                        <div className="col-span-3 p-4">
+                                            <a href={item.url}>
+                                                <div className="w-full m-1 bg-blue-950 p-5">
+                                                    <div>
+                                                        <img src={item.icon} width={40}></img>
+                                                    </div>
+                                                    <div className="pt-2 text-center" >
+                                                        <div className="text-right text-white text-[13px] sm:text-[17px]" >{item.name}</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    )
+                                })
+                            }
+
 
                         </div>
                     </div>
