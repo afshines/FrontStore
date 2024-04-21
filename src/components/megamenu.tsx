@@ -43,29 +43,38 @@ export function MegaMenu({ data }: any) {
                                     {item.ChildGroup.map((item2: any) => {
 
                                         return (
+                                            item2.ChildGroup.lenght == 0 ?
+                                                item2.ChildGroup.map((item3: any) => {
+                                                    return (
+                                                        <div>
+                                                            {item2.ChildGroup.indexOf(item3) == 0 &&
 
-                                            item2.ChildGroup.map((item3: any) => {
-                                                return (
-                                                    <div>
-                                                        {item2.ChildGroup.indexOf(item3) == 0 &&
+                                                                <a href={`/group/${item2.url}`} className='mt-b leading-10	 '>
+                                                                    <h3 className="text-[18] font-extrabold  font-['Peyda'] ">
+                                                                        <span className='text-[#4C72A2]'>{item2.name}</span>
+                                                                    </h3>
+                                                                </a>
+                                                            }
 
-                                                            <a href={`/group/${item2.url}`} className='mt-b leading-10	 '>
-                                                                <h3 className="text-[18] font-extrabold  font-['Peyda'] ">
-                                                                    <span className='text-[#4C72A2]'>{item2.name}</span>
-                                                                </h3>
+                                                            <a className="text-[14px] font-bold  text-[#888B91] leading-6	" href={`/group/${item3.url}`}>
+                                                                <h4 className="font-['Peyda']">{item3.name}</h4>
                                                             </a>
-                                                        }
-
-                                                        <a className="text-[14px] font-bold  text-[#888B91] leading-6	" href={`/group/${item3.url}`}>
-                                                            <h4 className="font-['Peyda']">{item3.name}</h4>
-                                                        </a>
-                                                    </div>
-                                                )
-                                            })
+                                                        </div>
+                                                    )
+                                                })
 
 
 
+
+                                                : <div>
+                                                    <a href={`/group/${item2.url}`} className='mt-b leading-10	 '>
+                                                        <h3 className="text-[14px] font-bold  font-['Peyda'] ">
+                                                            <span className='text-[#4C72A2]'>{item2.name}</span>
+                                                        </h3>
+                                                    </a>
+                                                </div>
                                         )
+
                                     })}
 
                                 </div>

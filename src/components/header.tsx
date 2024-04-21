@@ -125,8 +125,10 @@ export default function Headerofwebsite({ data }: any) {
 
 
           </div>
+              <a href="/invoice">
+              <img className="cart  mr-2  w-6 h-6 px-px py-px justify-center items-center inline-flex" src="/images/cart.svg" />
 
-          <img className="cart  mr-2  w-6 h-6 px-px py-px justify-center items-center inline-flex" src="/images/cart.svg" />
+              </a>
 
 
 

@@ -137,7 +137,7 @@ export default function Home({ data, headers }: any) {
                         <div className="col-span-12 font-bold text-blue-900">سبد خرید شما</div>
 
                         <div className="col-span-5">
-                            {invoice != null &&
+                            {invoice != null ?
                                 invoice.message.map((item: any, index: any) => {
                                     return (
                                         <div className="w-fit mb-4 shadow">
@@ -191,7 +191,12 @@ export default function Home({ data, headers }: any) {
                                             </div>
                                         </div>
                                     )
-                                })
+                                }) : <div className="card text-center p-5 pt-19 pb-20">
+                                    <div className="w-['100%'] text-center">
+                                        <img src="/assets/empty.svg" className="mr-auto ml-auto"></img>
+                                    </div>
+                                    <div>سبد خرید خالی می باشد</div>
+                                </div>
 
                             }
 
@@ -231,20 +236,20 @@ export default function Home({ data, headers }: any) {
                                     <div >
                                         <div className="grid grid-cols-2 mt-4" >
                                             <div>
-                                                   قیمت کالاها ({invoice.message.length}) 
+                                                قیمت کالاها ({invoice.message.length})
 
                                             </div>
                                             <div>
-                                                   {invoice.grandtotal} <span>تومان</span>
+                                                {invoice.grandtotal} <span>تومان</span>
 
                                             </div>
 
                                             <div>
-                                                    هزینه ارسال
+                                                هزینه ارسال
 
                                             </div>
                                             <div  >
-                                                    0 <span>تومان</span>
+                                                0 <span>تومان</span>
 
                                             </div>
                                             {/* {discountprice != 0 &&

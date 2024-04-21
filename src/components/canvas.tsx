@@ -61,7 +61,7 @@ export default function CanvasMenu({ data }: any) {
                                                 {item.ChildGroup.map((item2: any) => {
 
                                                     return (
-
+                                                        item2.ChildGroup.lenght == 0 ?
                                                         item2.ChildGroup.map((item3: any) => {
                                                             return (
                                                                 <div className='bg-white'>
@@ -81,7 +81,13 @@ export default function CanvasMenu({ data }: any) {
 
                                                                 </div>
                                                             )
-                                                        })
+                                                        }):<div>
+ <a href={`/group/${item2.url}`} className='mt-b leading-10	 '>
+                                                                            <h3 className="text-[13px] font-extrabold text-right  font-['Peyda'] ">
+                                                                                <span className='text-[#4C72A2]'>{item2.name}</span>
+                                                                            </h3>
+                                                                        </a>
+                                                            </div>
 
 
 
