@@ -24,7 +24,7 @@ export default function Home({ data, headers }: any) {
         <meta name="keywords" content={headers.setting.keywords} />
         <meta name="description" content={headers.setting.description} />
         <link rel="icon" href="/fav.png" />
-
+        <meta name="enamad" content="6651526" />
       </Head>
       <Headerofwebsite data={headers}></Headerofwebsite>
 
