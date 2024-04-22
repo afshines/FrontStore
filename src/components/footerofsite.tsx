@@ -46,9 +46,17 @@ export default function FooterOfSite({ data }: any) {
           </div>
           <div className="col-span-12 pt-4 pr-3">
             <WarrantyComponent></WarrantyComponent>
+            
           </div>
           <div className="col-span-12 pt-10 pr-10">
             <Subscript></Subscript>
+          </div>
+          <div className="col-span-12 text-center align-middle">
+            <div className="m-auto w-[80px]">
+            <Certificate></Certificate>
+            </div>
+         
+
           </div>
           <div className="col-span-12 pt-10 pr-10">
             <div className="flex justify-center m-auto">
